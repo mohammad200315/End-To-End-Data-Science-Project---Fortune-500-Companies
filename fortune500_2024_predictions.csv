@@ -1,0 +1,501 @@
+name,rank,year,industry,sector,headquarters_state,revenue_mil,predicted_2024_revenue,predicted_growth
+Exxon Mobil,3,2023,Petroleum Refining,Energy,TX,413680.0,391077.0343373016,-5.463876828151803
+Walmart,1,2023,General Merchandisers,Retailing,AR,611289.0,380710.2812777779,-37.720083090358585
+Amazon,2,2023,Internet Services and Retailing,Retailing,WA,513983.0,377432.10004563513,-26.56720163008599
+Apple,4,2023,"Computers, Office Equipment",Technology,CA,394328.0,368457.8995575397,-6.56055376297404
+CVS Health,6,2023,Health Care: Pharmacy and Other Services,Health Care,RI,322467.0,339428.56460912694,5.259938105023753
+UnitedHealth Group,5,2023,Health Care: Insurance and Managed Care,Health Care,MN,324162.0,333189.9414761905,2.7850091855894648
+Alphabet,8,2023,Internet Services and Retailing,Technology,CA,282836.0,326783.0744642857,15.538005934281948
+Berkshire Hathaway,7,2023,Insurance: Property and Casualty (Stock),Financials,NE,302089.0,323339.221843254,7.034424240291435
+McKesson,9,2023,Wholesalers: Health Care,Health Care,TX,263966.0,243091.47973412706,-7.908033711111635
+Costco Wholesale,12,2023,General Merchandisers,Retailing,WA,226954.0,241717.266019536,6.504959603944414
+AmerisourceBergen,11,2023,Wholesalers: Health Care,Health Care,PA,238587.0,234265.0767222223,-1.8114663740177408
+Microsoft,13,2023,Computer Software,Technology,WA,198270.0,231097.56490873004,16.557000508765846
+Chevron,10,2023,Petroleum Refining,Energy,CA,246252.0,210463.07276388883,-14.533456473901193
+Cardinal Health,14,2023,Wholesalers: Health Care,Health Care,OH,181364.0,194734.5923641053,7.372241659924411
+Cigna,15,2023,Health Care: Pharmacy and Other Services,Health Care,CT,180516.0,193458.72519999993,7.169849320835786
+Marathon Petroleum,16,2023,Petroleum Refining,Energy,OH,180012.0,174439.3555277778,-3.095707215197983
+Valero Energy,18,2023,Petroleum Refining,Energy,TX,171189.0,174189.73967189767,1.7528811266481297
+Phillips 66,17,2023,Petroleum Refining,Energy,TX,175702.0,173677.99575324685,-1.151952878597367
+Elevance Health,22,2023,Health Care: Insurance and Managed Care,Health Care,IN,156595.0,161318.13553284213,3.016147088248114
+Home Depot,20,2023,Specialty Retailers: Other,Retailing,GA,157403.0,160535.4627541486,1.99009088400387
+General Motors,21,2023,Motor Vehicles & Parts,Motor Vehicles & Parts,MI,156735.0,158926.06592532466,1.3979429772065308
+Centene,25,2023,Health Care: Insurance and Managed Care,Health Care,MO,144547.0,156369.98647799419,8.179337155384882
+Verizon Communications,26,2023,Telecommunications,Telecommunications,NY,136835.0,154737.9303293651,13.08358996555348
+Kroger,24,2023,Food & Drug Stores,Food & Drug Stores,OH,148258.0,153357.5466794733,3.439643512979608
+Ford Motor,19,2023,Motor Vehicles & Parts,Motor Vehicles & Parts,MI,158057.0,152851.4370660173,-3.2934719335320164
+JPMorgan Chase,23,2023,Commercial Banks,Financials,NY,154792.0,145766.85524152237,-5.830498190137496
+Comcast,29,2023,Telecommunications,Telecommunications,PA,121427.0,132239.70913365798,8.904699229708363
+Fannie Mae,28,2023,Diversified Financials,Financials,DC,121596.0,130613.04481150796,7.415576837649235
+Walgreens Boots Alliance,27,2023,Food & Drug Stores,Food & Drug Stores,IL,132703.0,130517.11751190481,-1.6471989993407736
+AT&T,30,2023,Telecommunications,Telecommunications,TX,120741.0,128825.46525270565,6.695708378020429
+Bank of America,32,2023,Commercial Banks,Financials,NC,115053.0,121538.26574007938,5.6367637002767275
+Meta Platforms,31,2023,Internet Services and Retailing,Technology,CA,116609.0,121350.5471626984,4.066193143495276
+Target,33,2023,General Merchandisers,Retailing,MN,109120.0,109947.10243650798,0.7579751067705089
+Pfizer,38,2023,Pharmaceuticals,Health Care,NY,100330.0,109590.04331612555,9.229585683370427
+Citigroup,36,2023,Commercial Banks,Financials,NY,101078.0,105706.88402078475,4.5795168293642075
+Archer Daniels Midland,35,2023,Food Production,"Food, Beverages & Tobacco",IL,101556.0,104662.2859431402,3.0586926849621916
+UPS,37,2023,"Mail, Package, and Freight Delivery",Transportation,GA,100338.0,101475.62078362746,1.1337885782330277
+State Farm Insurance,44,2023,Insurance: Property and Casualty (Mutual),Financials,IL,89328.0,100764.8348985245,12.80319149485547
+Lowe's,39,2023,Specialty Retailers: Other,Retailing,NC,97059.0,100730.50450724551,3.7827553418492985
+Johnson & Johnson,40,2023,Pharmaceuticals,Health Care,NJ,94943.0,100578.63047462804,5.935804087324012
+Energy Transfer,43,2023,Pipelines,Energy,TX,89876.0,100222.27730752865,11.51172427291897
+Walt Disney,48,2023,Entertainment,Media,CA,82722.0,99545.68889224928,20.33762347652291
+Dell Technologies,34,2023,"Computers, Office Equipment",Technology,TX,102301.0,99263.6713253968,-2.9690117150401223
+FedEx,41,2023,"Mail, Package, and Freight Delivery",Transportation,TN,93512.0,98576.07088308457,5.415423563911123
+Humana,42,2023,Health Care: Insurance and Managed Care,Health Care,KY,92870.0,98556.78712377147,6.123384433909197
+Tesla,50,2023,Motor Vehicles & Parts,Motor Vehicles & Parts,TX,81462.0,94970.99681005802,16.583188247352158
+PepsiCo,46,2023,Food Consumer Products,"Food, Beverages & Tobacco",NY,86392.0,93093.21842422661,7.756758061193871
+Freddie Mac,45,2023,Diversified Financials,Financials,VA,86717.0,92713.73549996396,6.915294002287861
+ConocoPhillips,49,2023,"Mining, Crude-Oil Production",Energy,TX,82156.0,92632.5350373016,12.752002333732895
+Wells Fargo,47,2023,Commercial Banks,Financials,CA,82859.0,87297.24129123753,5.356378053364788
+Procter & Gamble,51,2023,Household and Personal Products,Household Products,OH,80187.0,85453.57924384772,6.5678716548165195
+Sysco,56,2023,Wholesalers: Food and Grocery,Wholesalers,TX,68636.0,77561.54276691921,13.004170940787946
+Albertsons,53,2023,Food & Drug Stores,Food & Drug Stores,ID,71887.0,76827.57594116718,6.872697346066987
+American Airlines Group,89,2023,Airlines,Transportation,TX,48971.0,76827.36347554113,56.883387056709346
+Delta Air Lines,85,2023,Airlines,Transportation,GA,50582.0,74361.82380863995,47.01242301340388
+StoneX Group,59,2023,Diversified Financials,Financials,NY,66036.0,74206.99468265638,12.373545766939825
+General Electric,52,2023,Industrial Machinery,Industrials,MA,76555.0,73907.10614411975,-3.4588124301224576
+Raytheon Technologies,57,2023,Aerospace & Defense,Aerospace & Defense,VA,67074.0,73783.4503134031,10.00305679309881
+Boeing,58,2023,Aerospace & Defense,Aerospace & Defense,VA,66608.0,70736.35147548823,6.197981436896821
+TD Synnex,64,2023,Wholesalers: Electronics and Office Equipment,Wholesalers,CA,62344.0,69022.75855669192,10.712752721499928
+Lockheed Martin,60,2023,Aerospace & Defense,Aerospace & Defense,MD,65984.0,68594.56773833516,3.9563647828794215
+MetLife,54,2023,"Insurance: Life, Health (Stock)",Financials,NY,69898.0,68209.48266637776,-2.415687621422982
+Morgan Stanley,61,2023,Commercial Banks,Financials,NY,65936.0,67622.99933008412,2.5585406001033064
+Goldman Sachs Group,55,2023,Commercial Banks,Financials,NY,68711.0,67263.8928726451,-2.1060778148402766
+Intel,62,2023,Semiconductors and Other Electronic Components,Technology,CA,63054.0,66001.88862577564,4.675180996884636
+HP,63,2023,"Computers, Office Equipment",Technology,CA,62983.0,65710.203140814,4.3300623038184956
+American Express,77,2023,Diversified Financials,Financials,NY,55625.0,63562.548274017616,14.269749706099086
+Plains GP Holdings,74,2023,Pipelines,Energy,TX,57342.0,63225.1014957071,10.259672658273345
+Merck,69,2023,Pharmaceuticals,Health Care,NJ,59283.0,63037.60283897181,6.3333549904218955
+Caterpillar,68,2023,Construction and Farm Machinery,Industrials,TX,59427.0,62884.43640295744,5.817955479760786
+Enterprise Products Partners,72,2023,Pipelines,Energy,TX,58186.0,62706.25127056278,7.768623501465613
+IBM,65,2023,Information Technology Services,Technology,NY,60530.0,62551.7107734127,3.3400144943213257
+World Fuel Services,70,2023,Energy,Energy,FL,59043.0,62399.88514296538,5.685492171748354
+HCA Healthcare,66,2023,Health Care: Medical Facilities,Health Care,TN,60233.0,62328.78300095804,3.4794597661714395
+Prudential Financial,67,2023,"Insurance: Life, Health (Stock)",Financials,NJ,60050.0,61836.776588096414,2.9754814123170927
+AIG,76,2023,Insurance: Property and Casualty (Stock),Financials,NY,56437.0,60659.95074040934,7.482592519817387
+AbbVie,73,2023,Pharmaceuticals,Health Care,IL,58054.0,60514.70566720236,4.238649648951599
+Dow,75,2023,Chemicals,Chemicals,MI,56902.0,60198.77338754234,5.793774186394743
+CHS,90,2023,Food Production,"Food, Beverages & Tobacco",MN,47792.0,59897.95187864355,25.33049857432949
+Deere,81,2023,Construction and Farm Machinery,Industrials,IL,52577.0,56441.225461317925,7.349649963516224
+PBF Energy,92,2023,Petroleum Refining,Energy,NJ,46830.0,56173.0862644661,19.951070391770454
+Publix Super Markets,78,2023,Food & Drug Stores,Food & Drug Stores,FL,54942.0,55716.99566933706,1.4105705459158062
+New York Life Insurance,71,2023,"Insurance: Life, Health (Mutual)",Financials,NY,58445.0,55234.16793028502,-5.493766908572133
+Nationwide,83,2023,Insurance: Property and Casualty (Mutual),Financials,OH,51450.0,55212.37096646537,7.312674376025992
+Tyson Foods,80,2023,Food Production,"Food, Beverages & Tobacco",AR,53282.0,55007.62418075751,3.2386625516262777
+TJX,87,2023,Specialty Retailers: Apparel,Retailing,MA,49936.0,54719.174402125514,9.57860942431415
+Liberty Mutual Insurance Group,86,2023,Insurance: Property and Casualty (Stock),Financials,MA,49956.0,53449.42673511481,6.993007316668284
+Qualcomm,98,2023,Semiconductors and Other Electronic Components,Technology,CA,44200.0,53253.85968650793,20.483845444588077
+Progressive,88,2023,Insurance: Property and Casualty (Stock),Financials,OH,49611.0,53159.098838047925,7.151838983386598
+Charter Communications,79,2023,Telecommunications,Telecommunications,CT,54022.0,52736.58046806147,-2.3794371403104897
+Cisco Systems,82,2023,Network and Other Communications Equipment,Technology,CA,51557.0,52675.083982043674,2.1686366197483835
+United Airlines Holdings,96,2023,Airlines,Transportation,IL,44955.0,52114.607801190476,15.926165723924981
+Best Buy,94,2023,Specialty Retailers: Other,Retailing,MN,46298.0,51868.07728299126,12.030924193250812
+Performance Food Group,91,2023,Wholesalers: Food and Grocery,Wholesalers,VA,47194.0,51236.807709722205,8.56635951545155
+Allstate,84,2023,Insurance: Property and Casualty (Stock),Financials,IL,51412.0,51024.960205992415,-0.7528199525550172
+Bristol-Myers Squibb,95,2023,Pharmaceuticals,Health Care,NY,46159.0,50402.357055993016,9.192913745949904
+Thermo Fisher Scientific,97,2023,"Scientific, Photographic and Control Equipment",Technology,MA,44915.0,48517.157753048356,8.0199437894876
+Coca-Cola,100,2023,Beverages,"Food, Beverages & Tobacco",GA,43004.0,47753.53967300224,11.0444137126831
+Massachusetts Mutual Life Insurance,104,2023,"Insurance: Life, Health (Mutual)",Financials,MA,40281.0,47580.42413888573,18.12125850620822
+TIAA,103,2023,"Insurance: Life, Health (Mutual)",Financials,NY,40911.0,47439.76684655878,15.958463118864799
+HF Sinclair,107,2023,Petroleum Refining,Energy,TX,38205.0,47349.411025702066,23.935115889810408
+Nucor,102,2023,Metals,Materials,NC,41513.0,47144.11113995479,13.564693324873625
+Nike,93,2023,Apparel,Apparel,OR,46710.0,47118.27013381541,0.8740529518634286
+Abbott Laboratories,99,2023,Medical Products and Equipment,Health Care,IL,43653.0,46798.46717735014,7.205615140655028
+Oracle,101,2023,Computer Software,Technology,TX,42440.0,44128.501582849545,3.9785616938019444
+Capital One Financial,106,2023,Commercial Banks,Financials,VA,38373.0,41902.005966037126,9.196586052790051
+General Dynamics,105,2023,Aerospace & Defense,Aerospace & Defense,VA,39407.0,40644.4385642064,3.1401491212383608
+Dollar General,108,2023,Specialty Retailers: Other,Retailing,TN,37845.0,40474.86907500068,6.949052913200367
+Broadcom,123,2023,Semiconductors and Other Electronic Components,Technology,CA,33203.0,37693.40812303428,13.524103614234493
+Travelers,112,2023,Insurance: Property and Casualty (Stock),Financials,NY,36884.0,36725.1880127047,-0.4305714870819406
+USAA,114,2023,Insurance: Property and Casualty (Stock),Financials,TX,36297.0,36679.038789666694,1.0525354427823082
+Northrop Grumman,113,2023,Aerospace & Defense,Aerospace & Defense,VA,36602.0,36432.07041172944,-0.46426312297296
+Honeywell International,115,2023,"Electronics, Electrical Equipment",Industrials,NC,35466.0,36182.34899219589,2.0198189595553204
+Jabil,121,2023,Semiconductors and Other Electronic Components,Technology,FL,33478.0,36170.29175154922,8.041973091430858
+Warner Bros. Discovery,118,2023,Entertainment,Media,NY,33817.0,35783.21990911742,5.814294316815267
+Duke Energy,141,2023,Utilities: Gas and Electric,Energy,NC,28784.0,35571.81694665299,23.581909903602654
+Arrow Electronics,109,2023,Wholesalers: Electronics and Office Equipment,Wholesalers,CO,37124.0,35540.684319660126,-4.264938261878769
+Lennar,119,2023,Homebuilders,Engineering & Construction,FL,33671.0,35140.247524363425,4.363539913763848
+Salesforce,133,2023,Computer Software,Technology,CA,31352.0,34928.624440678126,11.407962620177743
+3M,116,2023,Chemicals,Chemicals,MN,34229.0,34894.14546312374,1.9432220138588419
+D.R. Horton,120,2023,Homebuilders,Engineering & Construction,TX,33480.0,34773.21988330801,3.8626639286380255
+US Foods Holding,117,2023,Wholesalers: Food and Grocery,Wholesalers,IL,34057.0,34751.06845348914,2.037961222330624
+Occidental Petroleum,110,2023,"Mining, Crude-Oil Production",Energy,TX,37095.0,34646.55381553779,-6.6004749547438015
+CarMax,124,2023,"Automotive Retailing, Services",Retailing,VA,33197.0,34372.48426992396,3.5409352348825487
+Paccar,140,2023,Motor Vehicles & Parts,Motor Vehicles & Parts,WA,28820.0,33946.92235635429,17.78945994571232
+Starbucks,125,2023,Food Services,"Hotels, Restaurants & Leisure",WA,32250.0,33708.835274594385,4.523520231300418
+Southern,138,2023,Utilities: Gas and Electric,Energy,GA,29279.0,33532.1337945345,14.526226286876259
+Mondelez International,131,2023,Food Consumer Products,"Food, Beverages & Tobacco",IL,31496.0,33229.32756993232,5.5033260411872
+Visa,137,2023,Financial Data Services,Business Services,CA,29310.0,33224.88243367102,13.356814853875868
+Molina Healthcare,126,2023,Health Care: Insurance and Managed Care,Health Care,CA,31974.0,33159.33093034099,3.7071712339431775
+Danaher,132,2023,Medical Products and Equipment,Health Care,DC,31471.0,33081.6272414777,5.1178139921759636
+NRG Energy,130,2023,Energy,Energy,TX,31543.0,33080.1737341556,4.873264223934312
+U.S. Bancorp,149,2023,Commercial Banks,Financials,MN,27401.0,32907.06397595917,20.094390627930267
+Paramount Global,134,2023,Entertainment,Media,NY,31331.0,32828.77657503545,4.780493999666311
+Lithia Motors,145,2023,"Automotive Retailing, Services",Retailing,OR,28188.0,32542.01529176438,15.446343450278057
+Micron Technology,136,2023,Semiconductors and Other Electronic Components,Technology,ID,30758.0,32382.47797446389,5.28148115763018
+United Natural Foods,139,2023,Wholesalers: Food and Grocery,Wholesalers,RI,28928.0,32241.91587413919,11.455737949872757
+Netflix,129,2023,Entertainment,Media,CA,31616.0,32130.68384148547,1.627922069475798
+Dollar Tree,144,2023,Specialty Retailers: Other,Retailing,VA,28332.0,32116.955169425,13.359293976510662
+Uber Technologies,127,2023,Internet Services and Retailing,Technology,CA,31877.0,32067.81939249386,0.5986115145523748
+CBRE Group,135,2023,Real Estate,Financials,TX,30828.0,32022.597782010373,3.875041462340641
+Philip Morris International,128,2023,Tobacco,"Food, Beverages & Tobacco",CT,31762.0,31932.51376278742,0.5368483180763838
+Cheniere Energy,122,2023,Pipelines,Energy,TX,33428.0,31896.813620803412,-4.58055037452611
+Cummins,146,2023,Industrial Machinery,Industrials,IN,28074.0,31207.774002397255,11.162548986240845
+PayPal Holdings,148,2023,Financial Data Services,Business Services,CA,27518.0,30437.378926034573,10.608979308214888
+Northwestern Mutual,111,2023,"Insurance: Life, Health (Mutual)",Financials,WI,36921.0,30437.219915494523,-17.561225547806064
+Hewlett Packard Enterprise,143,2023,"Computers, Office Equipment",Technology,TX,28496.0,30405.77694915428,6.7019123706986194
+Eli Lilly,142,2023,Pharmaceuticals,Health Care,IN,28541.0,30380.050223473954,6.443538150288898
+Penske Automotive Group,147,2023,"Automotive Retailing, Services",Retailing,MI,27815.0,29912.268122467274,7.540061558393939
+Gilead Sciences,150,2023,Pharmaceuticals,Health Care,CA,27281.0,29882.459123829292,9.535790930791732
+Exelon,218,2023,Utilities: Gas and Electric,Energy,IL,19078.0,29718.771408252887,55.77508862696765
+Nvidia,152,2023,Semiconductors and Other Electronic Components,Technology,CA,26974.0,29034.67392864634,7.639482200067997
+AutoNation,151,2023,"Automotive Retailing, Services",Retailing,FL,26985.0,27762.162768775946,2.879980614326279
+Amgen,154,2023,Pharmaceuticals,Health Care,CA,26323.0,27640.42603337608,5.004847598587089
+Applied Materials,155,2023,Semiconductors and Other Electronic Components,Technology,CA,25785.0,27330.635123109372,5.9943188796174995
+Kraft Heinz,153,2023,Food Consumer Products,"Food, Beverages & Tobacco",IL,26485.0,27249.64452802337,2.8870852483419713
+Constellation Energy,162,2023,Energy,Energy,MD,24440.0,27227.7935121432,11.406683764906704
+CDW,166,2023,Information Technology Services,Technology,IL,23749.0,26721.921758189794,12.518092375214932
+C.H. Robinson Worldwide,160,2023,Transportation and Logistics,Transportation,MN,24697.0,26599.648097362235,7.703964438442866
+Union Pacific,159,2023,Railroads,Transportation,NE,24875.0,26296.641400752836,5.715141309559142
+Cleveland-Cliffs,170,2023,Metals,Materials,OH,22989.0,26195.671153046293,13.94871961827958
+Macy's,158,2023,General Merchandisers,Retailing,NY,25305.0,26131.48671468523,3.266100433452797
+Truist Financial,157,2023,Commercial Banks,Financials,NC,25356.0,26047.85819313327,2.7285778243148373
+Rite Aid,161,2023,Food & Drug Stores,Food & Drug Stores,PA,24568.0,25726.52067334533,4.715567703294247
+PNC Financial Services Group,168,2023,Commercial Banks,Financials,PA,23542.0,25284.4439207184,7.401426899661883
+Builders FirstSource,172,2023,"Building Materials, Glass",Materials,TX,22726.0,24953.150401500847,9.80001056719549
+NextEra Energy,187,2023,Utilities: Gas and Electric,Energy,FL,20956.0,24839.857344006683,18.533390647101943
+Avnet,163,2023,Wholesalers: Electronics and Office Equipment,Wholesalers,AZ,24311.0,24774.792150725374,1.9077460850042125
+McDonald's,169,2023,Food Services,"Hotels, Restaurants & Leisure",IL,23183.0,24545.49958277099,5.877149561191347
+Advanced Micro Devices,167,2023,Semiconductors and Other Electronic Components,Technology,CA,23601.0,24333.055318549945,3.1017978837758773
+Steel Dynamics,176,2023,Metals,Materials,IN,22261.0,24003.35507801282,7.826939841035087
+Freeport-McMoRan,171,2023,"Mining, Crude-Oil Production",Energy,AZ,22780.0,23953.246892730345,5.15033754490933
+Southwest Airlines,165,2023,Airlines,Transportation,TX,23814.0,23820.314020422225,0.026513901159928778
+Targa Resources,188,2023,Pipelines,Energy,TX,20930.0,23367.817775152045,11.647481008848759
+Halliburton,197,2023,"Oil and Gas Equipment, Services",Energy,TX,20297.0,23219.3231834961,14.39780846182244
+Murphy USA,182,2023,Specialty Retailers: Other,Retailing,AR,21266.0,22997.731240552734,8.14319214028371
+Oneok,173,2023,Pipelines,Energy,OK,22387.0,22801.8868025384,1.8532487717800508
+Genuine Parts,179,2023,Wholesalers: Diversified,Wholesalers,GA,22096.0,22569.39437842424,2.142443783599928
+Land O'Lakes,213,2023,Food Consumer Products,"Food, Beverages & Tobacco",MN,19226.0,22543.86476622722,17.25717656416946
+Delek US Holdings,198,2023,Petroleum Refining,Energy,TN,20246.0,22365.814098591316,10.470285975458442
+EOG Resources,156,2023,"Mining, Crude-Oil Production",Energy,TX,25702.0,22363.78735119409,-12.988143525040508
+Mastercard,177,2023,Financial Data Services,Business Services,NY,22237.0,22207.434483068457,-0.13295641017917545
+Kimberly-Clark,199,2023,Household and Personal Products,Household Products,TX,20175.0,22132.209816053964,9.701163896178262
+DTE Energy,212,2023,Utilities: Gas and Electric,Energy,MI,19228.0,21952.011883438452,14.166901827743144
+Coupang,195,2023,Internet Services and Retailing,Retailing,WA,20583.0,21847.491524908164,6.143378151426732
+WESCO International,181,2023,Wholesalers: Diversified,Wholesalers,PA,21420.0,21827.84275120745,1.9040277834147925
+Southwestern Energy,275,2023,"Mining, Crude-Oil Production",Energy,TX,15002.0,21811.957611255293,45.39366491971266
+Sherwin-Williams,178,2023,Chemicals,Chemicals,OH,22149.0,21798.014512663518,-1.5846561349789248
+Charles Schwab,175,2023,Securities,Financials,TX,22307.0,21736.216595092556,-2.5587636388014725
+United States Steel,186,2023,Metals,Materials,PA,21065.0,21673.456508947438,2.8884714405290204
+Hartford Financial Services Group,174,2023,Insurance: Property and Casualty (Stock),Financials,CT,22362.0,21615.10470480606,-3.340020101931576
+Altria Group,194,2023,Tobacco,"Food, Beverages & Tobacco",VA,20688.0,21602.455028730143,4.420219589762871
+PG&E,180,2023,Utilities: Gas and Electric,Energy,CA,21680.0,21536.93643839653,-0.6598872767687758
+Marriott International,192,2023,"Hotels, Casinos, Resorts","Hotels, Restaurants & Leisure",MD,20773.0,21516.96933534064,3.5814246153210423
+Bank of New York Mellon,201,2023,Commercial Banks,Financials,NY,19991.0,21456.24050303494,7.32950079053044
+Goodyear Tire & Rubber,191,2023,Motor Vehicles & Parts,Motor Vehicles & Parts,OH,20805.0,21437.74614259737,3.041317676507429
+WestRock,183,2023,"Packaging, Containers",Materials,GA,21257.0,21378.72507342299,0.5726352421460659
+Aflac,207,2023,"Insurance: Life, Health (Stock)",Financials,GA,19502.0,21185.895217815043,8.634474504230557
+Devon Energy,216,2023,"Mining, Crude-Oil Production",Energy,OK,19169.0,21125.28338192363,10.205453502653397
+International Paper,184,2023,"Packaging, Containers",Materials,TN,21161.0,21096.720211456926,-0.3037653633716444
+American Electric Power,205,2023,Utilities: Gas and Electric,Energy,OH,19640.0,21070.202707386048,7.282091178136701
+Mosaic,217,2023,Chemicals,Chemicals,FL,19125.0,20911.713967678057,9.34229525583298
+Baker Hughes,185,2023,"Oil and Gas Equipment, Services",Energy,TX,21156.0,20878.622295224788,-1.311106564450803
+Global Partners,220,2023,Wholesalers: Diversified,Wholesalers,MA,18878.0,20840.051877214744,10.39332491373421
+Principal Financial,236,2023,"Insurance: Life, Health (Stock)",Financials,IA,17492.0,20798.99840097416,18.905776360474274
+Carrier Global,196,2023,Industrial Machinery,Industrials,FL,20421.0,20728.722052468373,1.5068902231446677
+Jones Lang LaSalle,190,2023,Real Estate,Financials,IL,20862.0,20703.098436087836,-0.7616794358746257
+Kinder Morgan,214,2023,Pipelines,Energy,TX,19200.0,20699.369779491633,7.809217601518924
+Waste Management,204,2023,Waste Management,Business Services,TX,19698.0,20661.23776484232,4.890028250798664
+Pioneer Natural Resources,164,2023,"Mining, Crude-Oil Production",Energy,TX,24294.0,20641.857627988124,-15.033104355033656
+Opendoor Technologies,266,2023,Internet Services and Retailing,Technology,AZ,15567.0,20411.169235325782,31.118193841625118
+Lear,189,2023,Motor Vehicles & Parts,Motor Vehicles & Parts,MI,20892.0,20353.0407224055,-2.5797399846567988
+Marsh & McLennan,193,2023,Diversified Financials,Financials,NY,20720.0,20205.457762305603,-2.483311957984542
+Emerson Electric,206,2023,Industrial Machinery,Industrials,MO,19629.0,20164.926319940507,2.7302782614524777
+Cognizant Technology Solutions,208,2023,Information Technology Services,Technology,NJ,19428.0,19902.450235631994,2.442095097961672
+BJ's Wholesale Club,210,2023,General Merchandisers,Retailing,MA,19315.0,19867.933974510943,2.8627179627799264
+Andersons,239,2023,Food Production,"Food, Beverages & Tobacco",OH,17351.0,19822.431244596224,14.243739522772314
+Whirlpool,203,2023,"Electronics, Electrical Equipment",Industrials,MI,19724.0,19787.785932179413,0.32339247708078006
+Texas Instruments,200,2023,Semiconductors and Other Electronic Components,Technology,TX,20028.0,19682.551365035084,-1.7248284150435191
+Moderna,211,2023,Pharmaceuticals,Health Care,MA,19263.0,19498.03349388139,1.220129231591083
+Becton Dickinson,209,2023,Medical Products and Equipment,Health Care,NJ,19408.0,19473.785164844823,0.338959010948182
+ManpowerGroup,202,2023,Temporary Help,Business Services,WI,19828.0,19390.94151549693,-2.2042489636023386
+Adobe,233,2023,Computer Software,Technology,CA,17606.0,19307.2224454539,9.662742505134041
+General Mills,219,2023,Food Consumer Products,"Food, Beverages & Tobacco",MN,18993.0,19304.429417433632,1.6397062993399245
+Dominion Energy,242,2023,Utilities: Gas and Electric,Energy,VA,17174.0,19224.7894183209,11.9412450117672
+Tenet Healthcare,215,2023,Health Care: Medical Facilities,Health Care,TX,19174.0,19087.299492553717,-0.45217746660208175
+Lam Research,240,2023,Semiconductors and Other Electronic Components,Technology,CA,17227.0,18855.92982386386,9.455679014708645
+Stryker,224,2023,Medical Products and Equipment,Health Care,MI,18449.0,18823.828057623465,2.0316985073633513
+DCP Midstream,276,2023,Pipelines,Energy,CO,14993.0,18822.526414542273,25.542095741627918
+Lumen Technologies,237,2023,Telecommunications,Telecommunications,LA,17478.0,18757.835616620458,7.3225518744733815
+Synchrony Financial,235,2023,Diversified Financials,Financials,CT,17526.0,18730.78593913453,6.874277867936381
+Kyndryl Holdings,225,2023,Information Technology Services,Technology,NY,18317.0,18717.573803989188,2.1868963475961545
+Booking Holdings,243,2023,Internet Services and Retailing,Technology,CT,17090.0,18674.940320523703,9.274080283930388
+Corteva,238,2023,Food Production,"Food, Beverages & Tobacco",IN,17455.0,18667.672005110144,6.94741910690429
+DISH Network,249,2023,Telecommunications,Telecommunications,CO,16679.0,18589.124052019764,11.452269632590468
+Reliance Steel & Aluminum,247,2023,Metals,Materials,AZ,17025.0,18564.645514871754,9.043439147558027
+BlackRock,229,2023,Securities,Financials,NY,17873.0,18443.182525556105,3.1901892550557
+Edison International,241,2023,Utilities: Gas and Electric,Energy,CA,17220.0,18409.130538318565,6.905519967006763
+Western Digital,221,2023,"Computers, Office Equipment",Technology,CA,18793.0,18394.54200826012,-2.1202468564884827
+Lincoln National,222,2023,"Insurance: Life, Health (Stock)",Financials,PA,18766.0,18327.676154182416,-2.3357340179984214
+Colgate-Palmolive,228,2023,Household and Personal Products,Household Products,NY,17967.0,18286.426924666528,1.7778534238689156
+Stanley Black & Decker,227,2023,"Home Equipment, Furnishings",Household Products,CT,18004.0,18233.316757705747,1.2736989430445822
+DuPont,250,2023,Chemicals,Chemicals,DE,16549.0,18213.709091005745,10.059273013509848
+PPG Industries,232,2023,Chemicals,Chemicals,PA,17652.0,18113.968390646456,2.6170880956631324
+Quanta Services,244,2023,Engineering & Construction,Engineering & Construction,TX,17074.0,18107.139512805235,6.05095181448539
+Block,234,2023,Financial Data Services,Business Services,CA,17532.0,18090.963898050726,3.1882494755346005
+Live Nation Entertainment,248,2023,Entertainment,Media,CA,16681.0,18076.99734289539,8.368786900637785
+Fiserv,230,2023,Financial Data Services,Business Services,WI,17737.0,18048.05300233164,1.7536956775759074
+DXC Technology,255,2023,Information Technology Services,Technology,VA,16265.0,17999.178152831344,10.662023687865625
+Diamondback Energy,400,2023,"Mining, Crude-Oil Production",Energy,TX,9643.0,17917.798258359715,85.81145139852447
+Estee Lauder,230,2023,Household and Personal Products,Household Products,NY,17737.0,17911.561587937547,0.9841663637455448
+Reinsurance Group of America,257,2023,"Insurance: Life, Health (Stock)",Financials,MO,16258.0,17795.5466242004,9.4571695423816
+Ross Stores,223,2023,Specialty Retailers: Apparel,Retailing,CA,18696.0,17699.411379526697,-5.330491123626997
+Automatic Data Processing,251,2023,Diversified Outsourcing Services,Business Services,NJ,16498.0,17665.0619245348,7.0739600226378885
+Hess,358,2023,"Mining, Crude-Oil Production",Energy,NY,11570.0,17653.514314710934,52.58007186439874
+L3Harris Technologies,246,2023,Aerospace & Defense,Aerospace & Defense,FL,17062.0,17641.5818488527,3.3969162399056394
+Kohl's,226,2023,General Merchandisers,Retailing,WI,18098.0,17472.02729411783,-3.4587949269652447
+Expeditors Intl. of Washington,245,2023,Transportation and Logistics,Transportation,WA,17071.0,17461.866460179554,2.289651808210143
+Group 1 Automotive,252,2023,"Automotive Retailing, Services",Retailing,TX,16412.0,17287.626689574554,5.335283265747952
+Ovintiv,329,2023,"Mining, Crude-Oil Production",Energy,CO,12464.0,17285.60374822955,38.68424059876083
+Xcel Energy,271,2023,Utilities: Gas and Electric,Energy,MN,15310.0,17277.724168170964,12.852541921430202
+PulteGroup,259,2023,Homebuilders,Engineering & Construction,GA,16229.0,17275.824057963862,6.450330013949487
+APA,341,2023,"Mining, Crude-Oil Production",Energy,TX,12132.0,17272.60034321683,42.372241536571295
+AutoZone,258,2023,Specialty Retailers: Other,Retailing,TN,16252.0,17193.97260942216,5.796041160608902
+Illinois Tool Works,260,2023,Industrial Machinery,Industrials,IL,15932.0,17181.361722071553,7.841838576899028
+Consolidated Edison,264,2023,Utilities: Gas and Electric,Energy,NY,15670.0,17172.577664447082,9.588881074965428
+Parker-Hannifin,261,2023,Industrial Machinery,Industrials,OH,15862.0,17127.884821550306,7.980612921134194
+Westlake,263,2023,Chemicals,Chemicals,TX,15794.0,16874.287433986454,6.8398596554796365
+Aramark,253,2023,Diversified Outsourcing Services,Business Services,PA,16327.0,16839.87858811332,3.141291040076676
+Viatris,256,2023,Pharmaceuticals,Health Care,PA,16263.0,16822.65234676346,3.4412614324753217
+Kellogg,270,2023,Food Consumer Products,"Food, Beverages & Tobacco",MI,15315.0,16774.84543490608,9.532128207026322
+Continental Resources,407,2023,"Mining, Crude-Oil Production",Energy,OK,9474.0,16761.790040801592,76.92410851595515
+J.B. Hunt Transport Services,280,2023,"Trucking, Truck Leasing",Transportation,AR,14814.0,16704.84269653395,12.763890215566015
+Ball,269,2023,"Packaging, Containers",Materials,CO,15349.0,16639.111809294096,8.405184763138289
+BorgWarner,262,2023,Motor Vehicles & Parts,Motor Vehicles & Parts,MI,15801.0,16595.02646027718,5.025165877331679
+Asbury Automotive Group,268,2023,"Automotive Retailing, Services",Retailing,GA,15434.0,16590.24547143755,7.491547696239141
+Chesapeake Energy,350,2023,"Mining, Crude-Oil Production",Energy,OK,11743.0,16554.82010877583,40.97607177702318
+CF Industries Holdings,365,2023,Chemicals,Chemicals,IL,11186.0,16533.954249878636,47.80935320828389
+W.W. Grainger,272,2023,Wholesalers: Diversified,Wholesalers,IL,15228.0,16364.060444449382,7.460339141380233
+Thor Industries,254,2023,Motor Vehicles & Parts,Motor Vehicles & Parts,IN,16313.0,16282.131777835872,-0.18922468070942428
+Jackson Financial,282,2023,"Insurance: Life, Health (Stock)",Financials,MI,14551.0,16281.335896541079,11.891525644567926
+Discover Financial Services,273,2023,Commercial Banks,Financials,IL,15202.0,16191.532890183937,6.509228326430316
+Gap,265,2023,Specialty Retailers: Apparel,Retailing,CA,15616.0,16100.755720930983,3.1042246473551707
+Sempra,285,2023,Utilities: Gas and Electric,Energy,CA,14439.0,15810.768548393375,9.500440116305663
+Nordstrom,267,2023,General Merchandisers,Retailing,WA,15530.0,15771.662062773374,1.5560982792876605
+CSX,279,2023,Railroads,Transportation,FL,14853.0,15620.993661728307,5.170629918052295
+Sonic Automotive,299,2023,"Automotive Retailing, Services",Retailing,NC,14001.0,15544.90117970606,11.027077920906073
+Ameriprise Financial,289,2023,Diversified Financials,Financials,MN,14347.0,15538.847366775359,8.307293279259488
+Tractor Supply,291,2023,Specialty Retailers: Other,Retailing,TN,14205.0,15463.662019270605,8.860697073358711
+Guardian Life Ins. Co. of America,281,2023,"Insurance: Life, Health (Mutual)",Financials,NY,14653.0,15349.22151017762,4.751392275831708
+Berry Global Group,284,2023,"Packaging, Containers",Materials,IN,14495.0,15297.190843133287,5.53425900747352
+Laboratory Corp. of America,278,2023,Health Care: Pharmacy and Other Services,Health Care,NC,14877.0,15285.675111408817,2.7470263588681623
+O'Reilly Automotive,287,2023,Specialty Retailers: Other,Retailing,MO,14410.0,15217.168089909563,5.601444065992801
+Equitable Holdings,298,2023,"Insurance: Life, Health (Stock)",Financials,NY,14017.0,15143.097463444743,8.033797984195926
+Ecolab,293,2023,Chemicals,Chemicals,MN,14188.0,15133.99017488187,6.667537178473852
+MGM Resorts International,315,2023,"Hotels, Casinos, Resorts","Hotels, Restaurants & Leisure",NV,13128.0,15126.69669814053,15.22468539107655
+Baxter International,274,2023,Medical Products and Equipment,Health Care,IL,15113.0,15096.363654763878,-0.11007970115875071
+Casey's General Stores,316,2023,Specialty Retailers: Other,Retailing,IA,12953.0,15084.47988569165,16.455492053513854
+Jacobs Solutions,277,2023,Engineering & Construction,Engineering & Construction,TX,14923.0,15083.584120699035,1.0760847061518148
+Republic Services,309,2023,Waste Management,Business Services,AZ,13511.0,15037.972865329133,11.301701319881083
+Omnicom Group,290,2023,"Advertising, Marketing",Business Services,NY,14289.0,15024.08251404299,5.144394387591782
+Leidos Holdings,288,2023,Information Technology Services,Technology,VA,14396.0,15003.967671127277,4.223170819166969
+IQVIA Holdings,286,2023,Health Care: Pharmacy and Other Services,Health Care,NC,14410.0,14958.095979946984,3.8035807074738637
+Peter Kiewit Sons',307,2023,Engineering & Construction,Engineering & Construction,NE,13663.0,14938.30370505267,9.333994767274165
+Western & Southern Financial Group,314,2023,"Insurance: Life, Health (Mutual)",Financials,OH,13156.0,14914.325825875643,13.365200865579533
+Farmers Insurance Exchange,295,2023,Insurance: Property and Casualty (Mutual),Financials,CA,14092.0,14900.33279461752,5.736111230609704
+Entergy,302,2023,Utilities: Gas and Electric,Energy,LA,13764.0,14865.541364438606,8.003061351631839
+Keurig Dr Pepper,296,2023,Beverages,"Food, Beverages & Tobacco",MA,14057.0,14793.832953949917,5.241751112968039
+VMware,313,2023,Computer Software,Technology,CA,13350.0,14747.372543269541,10.467210061944126
+Vistra,304,2023,Energy,Energy,TX,13728.0,14738.990489207823,7.364441209264445
+Corning,292,2023,"Electronics, Electrical Equipment",Industrials,NY,14189.0,14720.445987899628,3.7454788068195617
+Analog Devices,344,2023,Semiconductors and Other Electronic Components,Technology,MA,12014.0,14699.50384764582,22.35312009027651
+Fluor,303,2023,Engineering & Construction,Engineering & Construction,TX,13744.0,14653.10771894853,6.61457886312958
+AECOM,310,2023,Engineering & Construction,Engineering & Construction,TX,13496.0,14592.719563712848,8.126256399769176
+State Street,305,2023,Commercial Banks,Financials,MA,13692.0,14569.302270271768,6.407407758338943
+Textron,318,2023,Aerospace & Defense,Aerospace & Defense,RI,12869.0,14493.097891285586,12.620233827691244
+Universal Health Services,311,2023,Health Care: Medical Facilities,Health Care,PA,13399.0,14352.887810157412,7.119097023340637
+American Family Insurance Group,301,2023,Insurance: Property and Casualty (Stock),Financials,WI,13814.0,14336.02255155988,3.7789384071223364
+Apollo Global Management,356,2023,Securities,Financials,NY,11627.0,14292.809147466787,22.927747032482905
+Otis Worldwide,306,2023,Industrial Machinery,Industrials,CT,13685.0,14248.189535810381,4.115378412936654
+Carvana,308,2023,"Automotive Retailing, Services",Retailing,AZ,13604.0,14202.48717556172,4.399347071168189
+Intuit,321,2023,Computer Software,Technology,CA,12726.0,14190.99251044782,11.511806619894866
+Fidelity National Information Services,283,2023,Financial Data Services,Business Services,FL,14528.0,14182.238611914932,-2.3799655016868644
+Icahn Enterprises,294,2023,Diversified Financials,Financials,FL,14101.0,14137.277141437702,0.2572664452003552
+Coterra Energy,420,2023,"Mining, Crude-Oil Production",Energy,TX,9051.0,14133.30003575607,56.15180682527975
+Fox,300,2023,Entertainment,Media,NY,13974.0,14130.862566094736,1.1225316022236753
+Loews,297,2023,Insurance: Property and Casualty (Stock),Financials,NY,14044.0,14123.298193757171,0.5646410834318659
+Norfolk Southern,320,2023,Railroads,Transportation,GA,12745.0,14032.524049198038,10.102189479780609
+Air Products & Chemicals,322,2023,Chemicals,Chemicals,PA,12699.0,14015.51061312543,10.36704160268864
+Pacific Life,312,2023,"Insurance: Life, Health (Stock)",Financials,CA,13360.0,13959.517335939061,4.4874052091247085
+AGCO,324,2023,Construction and Farm Machinery,Industrials,GA,12651.0,13907.103669417997,9.928888383669248
+Thrivent Financial for Lutherans,412,2023,"Insurance: Life, Health (Mutual)",Financials,MN,9347.0,13806.256272880084,47.70788780229041
+Amphenol,326,2023,Network and Other Communications Equipment,Technology,CT,12623.0,13717.945899406986,8.67421293992701
+TravelCenters of America,372,2023,Specialty Retailers: Other,Retailing,OH,10845.0,13568.05232631257,25.108827351890923
+Crown Holdings,317,2023,"Packaging, Containers",Materials,FL,12943.0,13521.280783522225,4.467903758960247
+Mutual of Omaha,328,2023,"Insurance: Life, Health (Mutual)",Financials,NE,12531.0,13466.419768241934,7.46484532951827
+Boston Scientific,323,2023,Medical Products and Equipment,Health Care,MA,12682.0,13393.634741388356,5.611376292291089
+Regeneron Pharmaceuticals,339,2023,Pharmaceuticals,Health Care,NY,12173.0,13377.367177545175,9.89375813312392
+Jones Financial (Edward Jones),333,2023,Securities,Financials,MO,12411.0,13364.927460100635,7.686145033443193
+eBay,393,2023,Internet Services and Retailing,Technology,CA,9795.0,13339.49596209148,36.186788791133026
+LKQ,319,2023,Wholesalers: Diversified,Wholesalers,IL,12794.0,13318.08910662201,4.09636631719564
+Henry Schein,325,2023,Wholesalers: Health Care,Health Care,NY,12647.0,13295.685719540552,5.129166755282295
+Qurate Retail,342,2023,Internet Services and Retailing,Retailing,CO,12106.0,13288.885752035516,9.771070147327903
+Hormel Foods,330,2023,Food Consumer Products,"Food, Beverages & Tobacco",MN,12459.0,13193.334151832292,5.894005552871757
+Wayfair,336,2023,Internet Services and Retailing,Retailing,MA,12218.0,13191.008652406987,7.963730990399301
+Liberty Media,340,2023,Entertainment,Media,CO,12164.0,13174.353541050781,8.306096194103759
+Community Health Systems,337,2023,Health Care: Medical Facilities,Health Care,TN,12211.0,13169.059755340493,7.845874664978243
+Mohawk Industries,351,2023,"Home Equipment, Furnishings",Household Products,GA,11737.0,13114.325837562408,11.73490532131216
+Eversource Energy,335,2023,Utilities: Gas and Electric,Energy,MA,12289.0,13078.628698334021,6.425491889771514
+VF,349,2023,Apparel,Apparel,CO,11842.0,13057.888138489016,10.267591103605941
+International Flavors & Fragrances,332,2023,Chemicals,Chemicals,NY,12440.0,13055.683714552091,4.949226001222598
+Dick's Sporting Goods,334,2023,Specialty Retailers: Other,Retailing,PA,12368.0,12988.308954007443,5.015434621664323
+Ally Financial,338,2023,Diversified Financials,Financials,MI,12199.0,12945.421320188716,6.1187090760612834
+AES,327,2023,Utilities: Gas and Electric,Energy,VA,12617.0,12910.885027335049,2.3292781749627407
+S&P Global,366,2023,Financial Data Services,Business Services,NY,11181.0,12879.159701578983,15.187905389312073
+Alcoa,331,2023,Metals,Materials,PA,12451.0,12871.559461375282,3.3777163390513363
+Expedia Group,353,2023,Internet Services and Retailing,Retailing,WA,11667.0,12857.23774922433,10.201746372026488
+Avis Budget Group,346,2023,"Automotive Retailing, Services",Retailing,NJ,11994.0,12767.124326710005,6.44592568542609
+Ryder System,345,2023,Transportation and Logistics,Transportation,FL,12011.0,12691.759110441964,5.667797106335562
+UGI,388,2023,Utilities: Gas and Electric,Energy,PA,10106.0,12659.395683973811,25.266135800255405
+Unum Group,347,2023,"Insurance: Life, Health (Stock)",Financials,TN,11991.0,12650.92927022425,5.503538238881238
+Auto-Owners Insurance,362,2023,Insurance: Property and Casualty (Mutual),Financials,MI,11407.0,12557.153724558451,10.08287651931666
+Newmont,348,2023,"Mining, Crude-Oil Production",Energy,CO,11915.0,12498.356427412225,4.895983444500423
+FirstEnergy,343,2023,Utilities: Gas and Electric,Energy,OH,12053.0,12492.18796079348,3.64380619591372
+United Rentals,355,2023,Equipment Leasing,Business Services,CT,11642.0,12439.707718129177,6.851981774000833
+Fidelity National Financial,359,2023,Insurance: Property and Casualty (Stock),Financials,FL,11556.0,12408.000050614874,7.372793792098248
+DaVita,357,2023,Health Care: Medical Facilities,Health Care,CO,11610.0,12392.979275536813,6.744007541230082
+Toll Brothers,382,2023,Homebuilders,Engineering & Construction,PA,10276.0,12376.586844346104,20.441678127151654
+EnLink Midstream,406,2023,Pipelines,Energy,TX,9542.0,12363.705474061884,29.571426053886864
+MasTec,394,2023,Engineering & Construction,Engineering & Construction,FL,9778.0,12285.739557116256,25.646753498836738
+Markel,352,2023,Insurance: Property and Casualty (Stock),Financials,VA,11675.0,12276.993258230557,5.156259171139677
+Williams,370,2023,Pipelines,Energy,OK,10965.0,12253.071957564098,11.747122276006364
+Darden Restaurants,402,2023,Food Services,"Hotels, Restaurants & Leisure",FL,9630.0,12243.39326967256,27.138040183515688
+Caesars Entertainment,354,2023,"Hotels, Casinos, Resorts","Hotels, Restaurants & Leisure",NV,11647.0,12159.78200814773,4.402696043167591
+Raymond James Financial,363,2023,Securities,Financials,FL,11308.0,12116.324535247279,7.14825376058789
+Advance Auto Parts,368,2023,Specialty Retailers: Other,Retailing,NC,11155.0,12103.052405255154,8.498900988392233
+Univar Solutions,361,2023,Wholesalers: Diversified,Wholesalers,IL,11475.0,12098.701283973083,5.435305306954974
+Conagra Brands,360,2023,Food Consumer Products,"Food, Beverages & Tobacco",IL,11536.0,12098.67579651742,4.877564116829232
+Seaboard,364,2023,Food Production,"Food, Beverages & Tobacco",KS,11243.0,11951.929697365818,6.3055207450486375
+Assurant,384,2023,Insurance: Property and Casualty (Stock),Financials,GA,10193.0,11916.908570092057,16.912671147768634
+Alaska Air Group,398,2023,Airlines,Transportation,WA,9646.0,11900.663198313592,23.374074210176158
+EMCOR Group,369,2023,Engineering & Construction,Engineering & Construction,CT,11076.0,11887.662909990398,7.328123058779329
+W.R. Berkley,367,2023,Insurance: Property and Casualty (Stock),Financials,CT,11167.0,11816.796830180083,5.818902392586038
+Graybar Electric,378,2023,Wholesalers: Diversified,Wholesalers,MO,10534.0,11815.003778455106,12.160658614534896
+KKR,496,2023,Securities,Financials,NY,7273.0,11777.994348109009,61.94134948589315
+Ulta Beauty,383,2023,Specialty Retailers: Other,Retailing,IL,10209.0,11717.732417983245,14.778454481175874
+Biogen,386,2023,Pharmaceuticals,Health Care,MA,10173.0,11697.189793295374,14.982697270179635
+Chewy,389,2023,Internet Services and Retailing,Retailing,FL,10099.0,11629.824685024994,15.158180859738533
+NVR,376,2023,Homebuilders,Engineering & Construction,VA,10580.0,11607.332444164356,9.710136523292592
+Owens Corning,395,2023,"Building Materials, Glass",Materials,OH,9761.0,11559.70475018487,18.4274638887908
+Interpublic Group,371,2023,"Advertising, Marketing",Business Services,NY,10928.0,11485.169552996516,5.098550082325369
+Dana,387,2023,Motor Vehicles & Parts,Motor Vehicles & Parts,OH,10156.0,11474.958548358458,12.986988463553148
+NGL Energy Partners,467,2023,Pipelines,Energy,OK,7948.0,11457.792161240814,44.1594383648819
+Insight Enterprises,379,2023,Information Technology Services,Technology,AZ,10431.0,11429.31764939628,9.570680178278977
+American Tower,373,2023,Real Estate,Financials,MA,10711.0,11406.687273450883,6.495073041274235
+Weyerhaeuser,385,2023,Forest and Paper Products,Materials,WA,10184.0,11368.397677040968,11.629985045571171
+UFP Industries,403,2023,"Building Materials, Glass",Materials,MI,9627.0,11355.915125471342,17.959022805353086
+Hershey,380,2023,Food Consumer Products,"Food, Beverages & Tobacco",PA,10419.0,11348.415201076214,8.920387763472633
+Owens & Minor,390,2023,Wholesalers: Health Care,Health Care,VA,9956.0,11276.003649666396,13.258373339357131
+Molson Coors Beverage,374,2023,Beverages,"Food, Beverages & Tobacco",IL,10701.0,11227.21921964783,4.917477054927857
+SpartanNash,399,2023,Wholesalers: Food and Grocery,Wholesalers,MI,9643.0,11223.076001000007,16.385730592139446
+Celanese,396,2023,Chemicals,Chemicals,TX,9673.0,11172.593863808734,15.50288290921879
+Huntington Ingalls Industries,375,2023,Aerospace & Defense,Aerospace & Defense,VA,10676.0,11134.844391369965,4.297905501779363
+Intercontinental Exchange,401,2023,Securities,Financials,GA,9636.0,11113.811434474459,15.336357767480896
+Vertex Pharmaceuticals,427,2023,Pharmaceuticals,Health Care,MA,8931.0,11110.834932925734,24.40751240539396
+Airbnb,450,2023,Internet Services and Retailing,Technology,CA,8399.0,11043.107874669577,31.48122246302627
+WEC Energy Group,404,2023,Utilities: Gas and Electric,Energy,WI,9597.0,11033.486044658459,14.968073821594864
+Constellation Brands,430,2023,Beverages,"Food, Beverages & Tobacco",NY,8821.0,10998.83084427616,24.689160461128683
+Global Payments,425,2023,Financial Data Services,Business Services,GA,8976.0,10915.140921186778,21.60361988844449
+Yum China Holdings,405,2023,Food Services,"Hotels, Restaurants & Leisure",TX,9569.0,10896.970385191016,13.877838699874765
+Brighthouse Financial,448,2023,"Insurance: Life, Health (Stock)",Financials,NC,8473.0,10877.331994047383,28.376395539329437
+Quest Diagnostics,391,2023,Health Care: Pharmacy and Other Services,Health Care,NJ,9883.0,10804.707094375495,9.326187335581253
+Eastman Chemical,377,2023,Chemicals,Chemicals,TN,10580.0,10743.012626941796,1.5407620693931572
+News Corp.,381,2023,"Publishing, Printing",Media,NY,10385.0,10739.92145002065,3.417635532216185
+Altice USA,397,2023,Telecommunications,Telecommunications,NY,9648.0,10607.499479402713,9.94506093908285
+Blackstone,444,2023,Diversified Financials,Financials,NY,8518.0,10505.816490360932,23.336657552957647
+Public Service Enterprise Group,392,2023,Utilities: Gas and Electric,Energy,NJ,9800.0,10417.066617576656,6.29659813853731
+Marathon Oil,464,2023,"Mining, Crude-Oil Production",Energy,TX,8036.0,10387.338742217975,29.260063989770718
+Newell Brands,408,2023,"Home Equipment, Furnishings",Household Products,GA,9459.0,10369.390353794419,9.624594077539053
+Graphic Packaging Holding,409,2023,"Packaging, Containers",Materials,GA,9440.0,10177.357746834743,7.810993080876514
+KLA,416,2023,Semiconductors and Other Electronic Components,Technology,CA,9212.0,10142.546288309177,10.101457754116119
+Fifth Third Bancorp,411,2023,Commercial Banks,Financials,OH,9353.0,10085.488069530184,7.8315841925605
+Erie Insurance Group,414,2023,Insurance: Property and Casualty (Mutual),Financials,PA,9296.0,10070.534296261747,8.33190938319435
+Motorola Solutions,418,2023,Network and Other Communications Equipment,Technology,IL,9112.0,10069.498029845423,10.508099537372948
+JetBlue Airways,417,2023,Airlines,Transportation,NY,9158.0,10057.036992391604,9.816957767979954
+XPO,478,2023,Transportation and Logistics,Transportation,CT,7718.0,10041.52212122142,30.10523608734672
+Olin,410,2023,Chemicals,Chemicals,MO,9376.0,10002.217273772858,6.678938500137136
+PVH,422,2023,Apparel,Apparel,NY,9024.0,9994.136441276552,10.750625457408605
+Arconic,426,2023,Metals,Materials,PA,8961.0,9992.02759404877,11.505720277299075
+GXO Logistics,423,2023,Transportation and Logistics,Transportation,CT,8993.0,9944.769847973368,10.583452106898344
+Hertz Global Holdings,435,2023,"Automotive Retailing, Services",Retailing,FL,8685.0,9937.738723149043,14.424164918238835
+Taylor Morrison Home,457,2023,Homebuilders,Engineering & Construction,AZ,8225.0,9815.253189412857,19.334385281615283
+ODP,446,2023,Specialty Retailers: Other,Retailing,FL,8491.0,9807.341222800436,15.502782037456559
+A-Mark Precious Metals,458,2023,Wholesalers: Diversified,Wholesalers,CA,8159.0,9753.212047221465,19.539306866300585
+CenterPoint Energy,413,2023,Utilities: Gas and Electric,Energy,TX,9321.0,9752.948603023644,4.6341444375458
+Citizens Financial Group,419,2023,Commercial Banks,Financials,RI,9069.0,9676.829286234159,6.702274630435094
+Huntsman,433,2023,Chemicals,Chemicals,TX,8715.0,9654.77863494599,10.783461100929308
+CommScope Holding,415,2023,Network and Other Communications Equipment,Technology,NC,9228.0,9630.111177885936,4.357511680601819
+Genworth Financial,486,2023,"Insurance: Life, Health (Stock)",Financials,VA,7507.0,9602.856640519065,27.91869775568223
+Autoliv,429,2023,Motor Vehicles & Parts,Motor Vehicles & Parts,MI,8842.0,9592.815138158843,8.49146277040085
+CMS Energy,441,2023,Utilities: Gas and Electric,Energy,MI,8596.0,9563.410071662298,11.254188828086296
+Commercial Metals,428,2023,Metals,Materials,TX,8914.0,9557.95195740404,7.22405157509581
+Polaris,424,2023,Transportation Equipment,Transportation,MN,8987.0,9549.357861590683,6.257459236571522
+LPL Financial Holdings,440,2023,Securities,Financials,CA,8601.0,9534.000387606613,10.847580369801337
+Avery Dennison,421,2023,"Packaging, Containers",Materials,OH,9039.0,9507.668005798078,5.184954151986696
+EQT,487,2023,Energy,Energy,PA,7498.0,9461.850799634909,26.191661771604547
+Hilton Worldwide Holdings,431,2023,"Hotels, Casinos, Resorts","Hotels, Restaurants & Leisure",VA,8773.0,9436.534321131689,7.563368529940597
+Foot Locker,432,2023,Specialty Retailers: Apparel,Retailing,NY,8759.0,9419.86332090944,7.544963134027179
+Masco,436,2023,"Home Equipment, Furnishings",Household Products,MI,8680.0,9287.343043720297,6.9970396741969685
+Par Pacific Holdings,492,2023,Petroleum Refining,Energy,TX,7322.0,9276.056372124467,26.68746752423473
+M&T Bank,439,2023,Commercial Banks,Financials,NY,8604.0,9260.984955912481,7.635808413673656
+Campbell Soup,442,2023,Food Consumer Products,"Food, Beverages & Tobacco",NJ,8562.0,9259.18933837551,8.142832730384377
+Beacon Roofing Supply,449,2023,Wholesalers: Diversified,Wholesalers,VA,8430.0,9254.361713518836,9.778905261196156
+Boise Cascade,451,2023,Wholesalers: Diversified,Wholesalers,ID,8387.0,9253.178325167215,10.327629965031775
+Chipotle Mexican Grill,438,2023,Food Services,"Hotels, Restaurants & Leisure",CA,8635.0,9228.574768633305,6.874056382551305
+Booz Allen Hamilton Holding,452,2023,Information Technology Services,Technology,VA,8364.0,9203.777226375432,10.04037812500517
+Old Republic International,462,2023,Insurance: Property and Casualty (Stock),Financials,IL,8084.0,9178.258724341566,13.536104952270728
+Franklin Resources,456,2023,Securities,Financials,CA,8275.0,9177.410754342354,10.90526591350277
+Landstar System,489,2023,"Trucking, Truck Leasing",Transportation,FL,7440.0,9175.963252578937,23.332839416383557
+Lululemon athletica,461,2023,Specialty Retailers: Apparel,Retailing,WA,8111.0,9167.702629234062,13.028019100407615
+Burlington Stores,434,2023,Specialty Retailers: Apparel,Retailing,NJ,8703.0,9152.600493276093,5.166040368563638
+Oshkosh,455,2023,Construction and Farm Machinery,Industrials,WI,8282.0,9140.620959107984,10.367314164549434
+Williams-Sonoma,437,2023,Specialty Retailers: Other,Retailing,CA,8674.0,9110.115071365557,5.027842648899665
+ABM Industries,475,2023,Diversified Outsourcing Services,Business Services,NY,7807.0,9107.377712611291,16.656560940326514
+Dover,445,2023,Industrial Machinery,Industrials,IL,8508.0,9081.14404036119,6.736530798791613
+Sanmina,471,2023,Semiconductors and Other Electronic Components,Technology,CA,7891.0,9054.351314386273,14.74276155602931
+Huntington Bancshares,466,2023,Commercial Banks,Financials,OH,7950.0,9038.71067926265,13.694473952989297
+ON Semiconductor,454,2023,Semiconductors and Other Electronic Components,Technology,AZ,8326.0,9035.109304776322,8.51680644698922
+Westinghouse Air Brake Technologies,453,2023,Industrial Machinery,Industrials,PA,8362.0,9027.124370448917,7.9541302373704506
+KeyCorp,459,2023,Commercial Banks,Financials,OH,8130.0,9023.388727164107,10.988791232030835
+Packaging Corp. of America,447,2023,"Packaging, Containers",Materials,IL,8478.0,9015.852531486924,6.344096856415709
+Ameren,480,2023,Utilities: Gas and Electric,Energy,MO,7662.0,9007.420898274599,17.559656725066546
+Bath & Body Works,482,2023,Specialty Retailers: Other,Retailing,OH,7560.0,8987.068571057456,18.8765684002309
+ARKO,460,2023,Specialty Retailers: Other,Retailing,VA,8128.0,8983.410786708419,10.52424688371578
+Activision Blizzard,484,2023,Entertainment,Media,CA,7528.0,8954.984031605261,18.95568586085629
+First American Financial,481,2023,Insurance: Property and Casualty (Stock),Financials,CA,7605.0,8948.191177881683,17.66194842710957
+Bed Bath & Beyond,472,2023,Specialty Retailers: Other,Retailing,NJ,7868.0,8940.969227810134,13.637127958949335
+Zoetis,463,2023,Pharmaceuticals,Health Care,NJ,8080.0,8913.065694481507,10.310218991107764
+Arthur J. Gallagher,443,2023,Diversified Financials,Financials,IL,8551.0,8910.87071195906,4.2085219501702715
+Ingredion,468,2023,Food Production,"Food, Beverages & Tobacco",IL,7946.0,8908.34084362668,12.111009861901334
+J.M. Smucker,465,2023,Food Consumer Products,"Food, Beverages & Tobacco",OH,7999.0,8907.92614931358,11.362997241074885
+Northern Trust,477,2023,Commercial Banks,Financials,IL,7752.0,8881.264211786362,14.56739179290972
+PPL,470,2023,Utilities: Gas and Electric,Energy,PA,7902.0,8823.015044138958,11.655467528966817
+Skechers U.S.A.,488,2023,Apparel,Apparel,CA,7445.0,8809.432343781802,18.326827989010102
+Vulcan Materials,494,2023,"Building Materials, Glass",Materials,AL,7315.0,8792.656560955917,20.200363102609934
+Albemarle,493,2023,Chemicals,Chemicals,NC,7320.0,8788.616399868628,20.06306557197579
+Fortune Brands Innovations,469,2023,"Building Materials, Glass",Materials,IL,7923.0,8763.62339936683,10.609912903784302
+Regions Financial,483,2023,Commercial Banks,Financials,AL,7531.0,8761.632299959248,16.340888327702142
+SVB Financial Group,491,2023,Commercial Banks,Financials,CA,7401.0,8757.73644923199,18.331799070828133
+Watsco,495,2023,Wholesalers: Diversified,Wholesalers,FL,7274.0,8724.711120903616,19.943787749568543
+NCR,474,2023,"Computers, Office Equipment",Technology,GA,7844.0,8671.904922685768,10.554626755300458
+Equinix,497,2023,Real Estate,Financials,CA,7263.0,8665.642394891589,19.3121629477019
+Cintas,473,2023,Diversified Outsourcing Services,Business Services,OH,7855.0,8660.510510919408,10.254748706803415
+Science Applications International,479,2023,Information Technology Services,Technology,VA,7704.0,8608.423908512694,11.73966651755833
+Robert Half International,500,2023,Temporary Help,Business Services,CA,7238.0,8591.478472762888,18.699619684483125
+ServiceNow,499,2023,Computer Software,Technology,CA,7245.0,8590.765676831072,18.575095608434392
+Knight-Swift Transportation Holdings,490,2023,"Trucking, Truck Leasing",Transportation,AZ,7429.0,8525.314376444225,14.757226765974218
+Rockwell Automation,476,2023,"Electronics, Electrical Equipment",Industrials,WI,7760.0,8501.043983485766,9.549535869661934
+Sonoco Products,498,2023,"Packaging, Containers",Materials,SC,7251.0,8452.61666358421,16.57173718913542
+Avantor,485,2023,"Scientific, Photographic and Control Equipment",Technology,PA,7512.0,8407.761834101038,11.924412062047903
