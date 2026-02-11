@@ -145,7 +145,7 @@ colors = {
 
 col1, col2, col3 = st.columns([1,2,1])
 with col2:
-    st.image("header_logo.png", use_container_width=True)
+    st.image("C:\Users\mahmo\Downloads\WhatsApp Unknown 2026-02-11 at 1.40.45 PM\WhatsApp Image 2026-02-11 at 1.40.33 PM (1).jpeg", use_container_width=True)
 
 st.markdown(f"""
 <div style="background: linear-gradient(135deg, {colors['primary']} 0%, {colors['secondary']} 100%);
@@ -175,7 +175,7 @@ with st.sidebar:
     )
     
     st.sidebar.markdown("---")
-    st.sidebar.image("sidebar_logo.png", use_container_width=True)
+    st.sidebar.image(""C:\Users\mahmo\Downloads\WhatsApp Unknown 2026-02-11 at 1.40.45 PM\WhatsApp Image 2026-02-11 at 1.40.33 PM.jpeg"", use_container_width=True)
 
 if menu == _("Year Analysis", "تحليل السنوات"):
     st.markdown('<div class="custom-card">', unsafe_allow_html=True)
