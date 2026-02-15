@@ -27,18 +27,28 @@ profile_image_path = r"WhatsApp Image 2026-02-10 at 1.34.39 PM.jpeg"
 background_image_base64 = get_base64_of_image(background_image_path)
 profile_image_base64 = get_base64_of_image(profile_image_path)
 
-# JavaScript للتحكم بالشريط الجانبي
+# JavaScript محدث للتحكم بالشريط الجانبي بشكل صحيح
 st.markdown("""
 <script>
+// دالة لتبديل حالة الشريط الجانبي
 function toggleSidebar() {
     const sidebar = window.parent.document.querySelector('[data-testid="stSidebar"]');
+    const mainBlock = window.parent.document.querySelector('.block-container');
     const currentDisplay = window.getComputedStyle(sidebar).display;
     
     if (currentDisplay === 'none') {
+        // إظهار الشريط الجانبي
         sidebar.style.display = 'block';
+        sidebar.style.visibility = 'visible';
+        sidebar.style.width = '21rem';
+        mainBlock.style.marginLeft = '21rem';
         localStorage.setItem('sidebar_state', 'expanded');
     } else {
+        // إخفاء الشريط الجانبي
         sidebar.style.display = 'none';
+        sidebar.style.visibility = 'hidden';
+        sidebar.style.width = '0';
+        mainBlock.style.marginLeft = '0';
         localStorage.setItem('sidebar_state', 'collapsed');
     }
 }
@@ -46,21 +56,51 @@ function toggleSidebar() {
 // استعادة حالة الشريط الجانبي عند تحميل الصفحة
 function initializeSidebar() {
     const sidebar = window.parent.document.querySelector('[data-testid="stSidebar"]');
+    const mainBlock = window.parent.document.querySelector('.block-container');
     const savedState = localStorage.getItem('sidebar_state');
     
     if (savedState === 'collapsed') {
         sidebar.style.display = 'none';
+        sidebar.style.visibility = 'hidden';
+        sidebar.style.width = '0';
+        mainBlock.style.marginLeft = '0';
     } else {
         sidebar.style.display = 'block';
+        sidebar.style.visibility = 'visible';
+        sidebar.style.width = '21rem';
+        mainBlock.style.marginLeft = '21rem';
     }
 }
 
-// تنفيذ الدالة بعد تحميل الصفحة
+// التأكد من تحميل الصفحة بالكامل قبل تطبيق الحالة
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initializeSidebar);
 } else {
-    initializeSidebar();
+    setTimeout(initializeSidebar, 100); // تأخير بسيط للتأكد من تحميل كل العناصر
 }
+
+// مراقبة التغييرات في DOM لإعادة تطبيق الحالة إذا لزم الأمر
+const observer = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+        if (mutation.type === 'childList' || mutation.type === 'subtree') {
+            const sidebar = window.parent.document.querySelector('[data-testid="stSidebar"]');
+            const savedState = localStorage.getItem('sidebar_state');
+            if (sidebar && savedState === 'collapsed') {
+                sidebar.style.display = 'none';
+                sidebar.style.visibility = 'hidden';
+                sidebar.style.width = '0';
+            }
+        }
+    });
+});
+
+// بدء المراقبة بعد تحميل الصفحة
+window.parent.document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(function() {
+        const targetNode = window.parent.document.body;
+        observer.observe(targetNode, { childList: true, subtree: true });
+    }, 500);
+});
 </script>
 """, unsafe_allow_html=True)
 
@@ -94,6 +134,7 @@ footer {{visibility: hidden;}}
     background: rgba(10, 10, 20, 0.95) !important;
     backdrop-filter: blur(10px) !important;
     border-right: 1px solid rgba(255,255,255,0.15) !important;
+    transition: all 0.3s ease !important;
 }}
 
 /* تنسيق زر التحكم بالشريط الجانبي */
@@ -345,6 +386,11 @@ hr {{
     border: 1px solid rgba(255,255,255,0.2) !important;
     border-radius: 8px !important;
 }}
+
+/* تنسيق الحاوية الرئيسية */
+.block-container {{
+    transition: margin-left 0.3s ease !important;
+}}
 </style>
 """, unsafe_allow_html=True)
 
@@ -445,7 +491,7 @@ st.markdown(f"""
 </div>
 """, unsafe_allow_html=True)
 
-# ==================== MAIN CONTENT BASED ON SELECTION ====================
+# ==================== باقي الكود كما هو (Year Analysis, Company Analysis, etc.) ====================
 if menu == "📊 Year Analysis" or menu == "📊 تحليل السنوات":
     st.markdown('<div class="custom-card">', unsafe_allow_html=True)
     st.header("📊 Year Analysis" if lang == "English" else "📊 تحليل السنوات")
