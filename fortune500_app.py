@@ -28,10 +28,16 @@ background_image_base64 = get_base64_of_image(background_image_path)
 profile_image_base64 = get_base64_of_image(profile_image_path)
 
 # تهيئة حالة الشريط الجانبي في session state
+if 'sidebar_visible' not in st.session_state:
+    st.session_state.sidebar_visible = True
 if 'lang' not in st.session_state:
     st.session_state.lang = "English"
 if 'menu' not in st.session_state:
     st.session_state.menu = "📊 Year Analysis"
+
+# دالة لتبديل حالة الشريط الجانبي
+def toggle_sidebar():
+    st.session_state.sidebar_visible = not st.session_state.sidebar_visible
 
 st.markdown(f"""
 <style>
@@ -45,11 +51,6 @@ footer {{visibility: hidden;}}
 header {{
     display: none !important;
     visibility: hidden !important;
-}}
-
-/* إخفاء أي أزرار في الأعلى */
-.stButton > button {{
-    display: none !important;
 }}
 
 /* تنسيق خلفية التطبيق */
@@ -74,8 +75,37 @@ header {{
     background: rgba(10, 10, 20, 0.95) !important;
     backdrop-filter: blur(10px) !important;
     border-right: 1px solid rgba(255,255,255,0.15) !important;
-    display: block !important;
-    width: 21rem !important;
+    transition: all 0.3s ease !important;
+}}
+
+/* تنسيق زر التحكم بالشريط الجانبي - يظهر دائماً */
+.sidebar-toggle-btn {{
+    position: fixed !important;
+    top: 20px !important;
+    left: 20px !important;
+    z-index: 999999 !important;
+    background: linear-gradient(135deg, #4A5568 0%, #2D3748 100%) !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 50% !important;
+    width: 50px !important;
+    height: 50px !important;
+    font-size: 24px !important;
+    cursor: pointer !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5) !important;
+    border: 2px solid rgba(255,255,255,0.3) !important;
+    transition: all 0.3s ease !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-decoration: none !important;
+}}
+
+.sidebar-toggle-btn:hover {{
+    transform: scale(1.1) !important;
+    background: linear-gradient(135deg, #2D3748 0%, #1A202C 100%) !important;
+    border-color: white !important;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.7) !important;
 }}
 
 /* تنسيق صورة المطور في الشريط الجانبي */
@@ -280,9 +310,55 @@ hr {{
     border-radius: 8px !important;
 }}
 </style>
+
+<!-- JavaScript للتحكم بالشريط الجانبي -->
+<script>
+function toggleSidebar() {{
+    const sidebar = window.parent.document.querySelector('[data-testid="stSidebar"]');
+    const currentDisplay = window.getComputedStyle(sidebar).display;
+    
+    if (currentDisplay === 'none') {{
+        sidebar.style.display = 'block';
+        sidebar.style.visibility = 'visible';
+        sidebar.style.width = '21rem';
+        localStorage.setItem('sidebar_state', 'expanded');
+    }} else {{
+        sidebar.style.display = 'none';
+        sidebar.style.visibility = 'hidden';
+        sidebar.style.width = '0';
+        localStorage.setItem('sidebar_state', 'collapsed');
+    }}
+}}
+
+// استعادة حالة الشريط الجانبي عند تحميل الصفحة
+function initializeSidebar() {{
+    const sidebar = window.parent.document.querySelector('[data-testid="stSidebar"]');
+    const savedState = localStorage.getItem('sidebar_state');
+    
+    if (savedState === 'collapsed') {{
+        sidebar.style.display = 'none';
+        sidebar.style.visibility = 'hidden';
+        sidebar.style.width = '0';
+    }} else {{
+        sidebar.style.display = 'block';
+        sidebar.style.visibility = 'visible';
+        sidebar.style.width = '21rem';
+    }}
+}}
+
+// تنفيذ الدالة بعد تحميل الصفحة
+if (document.readyState === 'loading') {{
+    document.addEventListener('DOMContentLoaded', initializeSidebar);
+}} else {{
+    setTimeout(initializeSidebar, 100);
+}}
+</script>
 """, unsafe_allow_html=True)
 
-# ==================== تم إزالة زر التحكم بالشريط الجانبي ====================
+# ==================== زر التحكم بالشريط الجانبي (يظهر دائماً) ====================
+st.markdown("""
+<button class="sidebar-toggle-btn" onclick="toggleSidebar()">☰</button>
+""", unsafe_allow_html=True)
 
 # ==================== MAIN HEADER ====================
 st.markdown(f"""
@@ -291,6 +367,8 @@ st.markdown(f"""
             padding: 25px; 
             border-radius: 10px; 
             margin-bottom: 30px; 
+            margin-left: 30px;
+            margin-right: 30px;
             text-align: center;
             border: 1px solid rgba(255,255,255,0.25);
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);">
@@ -694,6 +772,8 @@ st.markdown(f"""
             border-radius: 35px;
             padding: 10px;
             margin-top: 10px;
+            margin-left: 30px;
+            margin-right: 30px;
             border: 1px solid rgba(255,255,255,0.2);
             text-align: center;">
     <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem; margin-top: 10px;">
