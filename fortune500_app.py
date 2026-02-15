@@ -354,9 +354,6 @@ with st.sidebar:
     <div class="developer-profile">
         <img src="data:image/jpeg;base64,{profile_image_base64}" class="developer-image" alt="Developer">
         <div class="developer-name">Mohammad Naser</div>
-        <div style="color: #A0AEC0; font-size: 0.8rem; margin-top: 5px;">
-            
-        </div>
     </div> 
     """, unsafe_allow_html=True)
  
