@@ -29,6 +29,14 @@ profile_image_base64 = get_base64_of_image(profile_image_path)
 
 st.markdown(f"""
 <style>
+/* إخفاء عناصر Streamlit الافتراضية */
+#MainMenu {{visibility: hidden;}}
+footer {{visibility: hidden;}}
+header {{visibility: hidden;}}
+.stDeployButton {{display: none;}}
+.stAppToolbar {{display: none;}}
+.appview-container .main .block-container {{padding-top: 0rem; padding-bottom: 0rem;}}
+
 .stApp {{
     background-image: url("data:image/jpeg;base64,{background_image_base64}");
     background-size: cover;
@@ -336,30 +344,6 @@ div[data-testid="stMetric"]:nth-of-type(1) div {{
     margin-bottom: 10px;
     text-align: center;
 }}
-header[data-testid="stHeader"] {
-        display: none;
-    }
-    
-    /* إخفاء شعار Streamlit */
-    #MainMenu {
-        visibility: hidden;
-    }
-    
-    /* إخفاء نص "Deploy" */
-    .stDeployButton {
-        display: none;
-    }
-    
-    /* إخفاء footer */
-    footer {
-        display: none !important;
-    }
-    
-    /* تحسين مظهر الصفحة */
-    .main .block-container {
-        padding-top: 0 !important;
-        margin-top: 0 !important;
-    }
 </style>
 """, unsafe_allow_html=True)
 
@@ -369,10 +353,10 @@ with st.sidebar:
     st.markdown(f"""
     <div class="developer-profile">
         <img src="data:image/jpeg;base64,{profile_image_base64}" class="developer-image" alt="Developer">
-        <p>
-        <div class="developer-title">Mohammad Naser</div>
+        <div class="developer-name">Mohammad Naser</div>
+        <div class="developer-title">Data Analyst</div>
         <div style="color: #A0AEC0; font-size: 0.8rem; margin-top: 5px;">
-        </p>
+            ⭐ Fortune 500 Expert
         </div>
     </div>
     """, unsafe_allow_html=True)
@@ -381,8 +365,6 @@ with st.sidebar:
     
     st.markdown("<hr style='margin: 15px 0;'>", unsafe_allow_html=True)
 
-    
-    
     if lang == "English":
         menu_options = [
             "📊 Year Analysis",
@@ -407,8 +389,6 @@ with st.sidebar:
     )
     
     st.markdown("<hr style='margin: 15px 0;'>", unsafe_allow_html=True)
-    
-
 
 # ==================== DATA LOADING ====================
 @st.cache_data
@@ -416,22 +396,22 @@ def load_data():
     files = {}
     try:
         files['main'] = pd.read_csv('fortune500_cleaned.csv')
-        st.sidebar.success(f"Main: {len(files['main']):,} rows")
+        st.sidebar.success(f"✅ Main: {len(files['main']):,} rows")
     except:
         files['main'] = pd.DataFrame()
     try:
         files['pred2024'] = pd.read_csv('fortune500_2024_predictions.csv')
-        st.sidebar.success(f"2024: {len(files['pred2024']):,} rows")
+        st.sidebar.success(f"✅ 2024: {len(files['pred2024']):,} rows")
     except:
         files['pred2024'] = pd.DataFrame()
     try:
         files['models'] = pd.read_csv('fortune500_models_performance.csv')
-        st.sidebar.success(f"Models: {len(files['models'])} models")
+        st.sidebar.success(f"✅ Models: {len(files['models'])} models")
     except:
         files['models'] = pd.DataFrame()
     try:
         files['test'] = pd.read_csv('fortune500_test_predictions.csv')
-        st.sidebar.success(f"Test: {len(files['test']):,} rows")
+        st.sidebar.success(f"✅ Test: {len(files['test']):,} rows")
     except:
         files['test'] = pd.DataFrame()
     return files
@@ -451,7 +431,7 @@ st.markdown(f"""
             backdrop-filter: blur(12px);
             padding: 25px; 
             border-radius: 10px; 
-            margin-bottom: 150px; 
+            margin-bottom: 30px; 
             text-align: center;
             border: 1px solid rgba(255,255,255,0.25);
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);">
@@ -787,4 +767,3 @@ st.markdown(f"""
     </p>
 </div>
 """, unsafe_allow_html=True)
-
