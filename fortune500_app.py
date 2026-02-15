@@ -326,9 +326,9 @@ colors = {
 st.markdown(f"""
 <div style="background: linear-gradient(135deg, rgba(45, 55, 72, 0.95) 0%, rgba(26, 32, 44, 0.95) 100%);
             backdrop-filter: blur(12px);
-            padding: 40px; 
-            border-radius: 25px; 
-            margin-bottom: 30px; 
+            padding: 25px; 
+            border-radius: 20px; 
+            margin-bottom: 200px; 
             text-align: center;
             border: 1px solid rgba(255,255,255,0.25);
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);">
