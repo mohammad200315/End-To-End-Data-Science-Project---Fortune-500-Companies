@@ -45,6 +45,7 @@ st.markdown(f"""
 }}
 
 .css-1d391kg, .css-163ttbj, [data-testid="stSidebar"] > div:first-child {{
+    background: rgba(10, 10, 20, 0.85) !important;
     backdrop-filter: blur(10px) !important;
     border-right: 1px solid rgba(255,255,255,0.15) !important;
 }}
@@ -335,6 +336,30 @@ div[data-testid="stMetric"]:nth-of-type(1) div {{
     margin-bottom: 10px;
     text-align: center;
 }}
+header[data-testid="stHeader"] {
+        display: none;
+    }
+    
+    /* إخفاء شعار Streamlit */
+    #MainMenu {
+        visibility: hidden;
+    }
+    
+    /* إخفاء نص "Deploy" */
+    .stDeployButton {
+        display: none;
+    }
+    
+    /* إخفاء footer */
+    footer {
+        display: none !important;
+    }
+    
+    /* تحسين مظهر الصفحة */
+    .main .block-container {
+        padding-top: 0 !important;
+        margin-top: 0 !important;
+    }
 </style>
 """, unsafe_allow_html=True)
 
@@ -762,3 +787,4 @@ st.markdown(f"""
     </p>
 </div>
 """, unsafe_allow_html=True)
+
