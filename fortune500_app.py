@@ -668,7 +668,7 @@ st.markdown(f"""
             backdrop-filter: blur(12px);
             border-radius: 30px;
             padding: 10px;
-            margin-top: 20px;
+            margin-top: 13px;
             border: 1px solid rgba(255,255,255,0.2);
             text-align: center;">
     <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem; margin-top: 10px;">
