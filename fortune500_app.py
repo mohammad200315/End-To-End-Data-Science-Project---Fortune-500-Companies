@@ -28,8 +28,16 @@ background_image_base64 = get_base64_of_image(background_image_path)
 profile_image_base64 = get_base64_of_image(profile_image_path)
 
 # ==================== SESSION STATE FOR SIDEBAR ====================
-if 'sidebar_state' not in st.session_state:
-    st.session_state.sidebar_state = 'expanded'
+if 'sidebar_collapsed' not in st.session_state:
+    st.session_state.sidebar_collapsed = False
+
+# ==================== TOGGLE SIDEBAR FUNCTION ====================
+def toggle_sidebar():
+    st.session_state.sidebar_collapsed = not st.session_state.sidebar_collapsed
+    if st.session_state.sidebar_collapsed:
+        st.set_page_config(initial_sidebar_state="collapsed")
+    else:
+        st.set_page_config(initial_sidebar_state="expanded")
 
 # ==================== CUSTOM CSS ====================
 st.markdown(f"""
@@ -62,12 +70,18 @@ header {{visibility: hidden;}}
     box-shadow: 0 4px 15px rgba(0,0,0,0.3);
     transition: all 0.3s ease;
     backdrop-filter: blur(5px);
+    text-decoration: none;
 }}
 
 .sidebar-toggle-btn:hover {{
     transform: scale(1.1);
     box-shadow: 0 8px 25px rgba(74, 85, 104, 0.5);
     background: linear-gradient(135deg, #2D3748 0%, #1A202C 100%);
+}}
+
+/* تنسيق الشريط الجانبي عندما يكون مخفياً */
+section[data-testid="stSidebar"][aria-expanded="false"] {{
+    display: none;
 }}
 
 .stApp {{
@@ -335,13 +349,10 @@ hr {{
 """, unsafe_allow_html=True)
 
 # ==================== SIDEBAR TOGGLE BUTTON ====================
-col1, col2, col3 = st.columns([1, 10, 1])
+col1, col2, col3 = st.columns([1, 20, 1])
 with col1:
-    if st.button("☰", key="sidebar_toggle"):
-        if st.session_state.sidebar_state == 'expanded':
-            st.session_state.sidebar_state = 'collapsed'
-        else:
-            st.session_state.sidebar_state = 'expanded'
+    if st.button("☰", key="sidebar_toggle", help="Show/Hide Sidebar"):
+        toggle_sidebar()
         st.rerun()
 
 # ==================== SIDEBAR ====================
