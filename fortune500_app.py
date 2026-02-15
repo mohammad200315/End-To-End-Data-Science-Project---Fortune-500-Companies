@@ -31,8 +31,46 @@ profile_image_base64 = get_base64_of_image(profile_image_path)
 if 'sidebar_state' not in st.session_state:
     st.session_state.sidebar_state = 'expanded'
 
+# JavaScript للتحكم بالشريط الجانبي
+st.markdown("""
+<script>
+function toggleSidebar() {
+    const sidebar = window.parent.document.querySelector('[data-testid="stSidebar"]');
+    const currentDisplay = window.getComputedStyle(sidebar).display;
+    
+    if (currentDisplay === 'none') {
+        sidebar.style.display = 'block';
+        localStorage.setItem('sidebar_state', 'expanded');
+    } else {
+        sidebar.style.display = 'none';
+        localStorage.setItem('sidebar_state', 'collapsed');
+    }
+}
+
+// استعادة حالة الشريط الجانبي عند تحميل الصفحة
+function initializeSidebar() {
+    const sidebar = window.parent.document.querySelector('[data-testid="stSidebar"]');
+    const savedState = localStorage.getItem('sidebar_state');
+    
+    if (savedState === 'collapsed') {
+        sidebar.style.display = 'none';
+    } else {
+        sidebar.style.display = 'block';
+    }
+}
+
+// تنفيذ الدالة بعد تحميل الصفحة
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeSidebar);
+} else {
+    initializeSidebar();
+}
+</script>
+""", unsafe_allow_html=True)
+
 st.markdown(f"""
 <style>
+/* إخفاء عناصر Streamlit الافتراضية */
 #MainMenu {{visibility: hidden;}}
 footer {{visibility: hidden;}}
 .stDeployButton {{display: none;}}
@@ -63,7 +101,7 @@ footer {{visibility: hidden;}}
 }}
 
 /* تنسيق زر التحكم بالشريط الجانبي */
-.sidebar-toggle {{
+.custom-sidebar-btn {{
     position: fixed !important;
     top: 20px !important;
     left: 20px !important;
@@ -85,7 +123,7 @@ footer {{visibility: hidden;}}
     text-decoration: none !important;
 }}
 
-.sidebar-toggle:hover {{
+.custom-sidebar-btn:hover {{
     transform: scale(1.1) !important;
     background: linear-gradient(135deg, #2D3748 0%, #1A202C 100%) !important;
     border-color: white !important;
@@ -315,29 +353,9 @@ hr {{
 """, unsafe_allow_html=True)
 
 # ==================== SIDEBAR TOGGLE BUTTON ====================
-col1, col2, col3 = st.columns([1, 10, 1])
-with col1:
-    if st.button("☰", key="sidebar_toggle"):
-        if st.session_state.sidebar_state == 'expanded':
-            st.session_state.sidebar_state = 'collapsed'
-        else:
-            st.session_state.sidebar_state = 'expanded'
-        st.rerun()
-
-# تطبيق حالة الشريط الجانبي
-if st.session_state.sidebar_state == 'collapsed':
-    st.markdown("""
-    <style>
-        [data-testid="stSidebar"] {
-            display: none !important;
-        }
-        .main .block-container {
-            max-width: 100% !important;
-            padding-left: 5rem !important;
-            padding-right: 5rem !important;
-        }
-    </style>
-    """, unsafe_allow_html=True)
+st.markdown("""
+<button class="custom-sidebar-btn" onclick="toggleSidebar()">☰</button>
+""", unsafe_allow_html=True)
 
 # ==================== SIDEBAR ====================
 with st.sidebar:
