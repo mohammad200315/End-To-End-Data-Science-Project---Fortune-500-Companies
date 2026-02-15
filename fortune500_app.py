@@ -11,15 +11,6 @@ from datetime import datetime
 from PIL import Image
 warnings.filterwarnings('ignore')
 
-"""
-FORTUNE 500 ANALYTICS DASHBOARD
-================================
-Developer: Mohammad Zakaria Naser
-Date: 2024
-Copyright © 2024 Mohammad Naser. All rights reserved.
-This application was developed from scratch by Mohammad Naser.
-"""
-
 st.set_page_config(
     page_title="Fortune 500 Analytics Dashboard",
     page_icon="📊",
@@ -100,8 +91,6 @@ st.markdown(f"""
     margin-top: 15px;
     font-weight: 300;
 }}
-
-/* تم إزالة developer-badge من هنا */
 
 .custom-card {{
     background: rgba(20, 25, 40, 0.75) !important;
@@ -248,18 +237,6 @@ hr {{
 .sidebar-content p, .sidebar-content span, .sidebar-content div {{
     color: white !important;
 }}
-
-.watermark {{
-    position: fixed;
-    bottom: 10px;
-    right: 10px;
-    opacity: 0.2;
-    z-index: 1000;
-    pointer-events: none;
-    font-size: 12px;
-    color: white;
-    transform: rotate(-5deg);
-}}
 </style>
 """, unsafe_allow_html=True)
 
@@ -316,19 +293,14 @@ with st.sidebar:
             _("📈 Year Comparison", "📈 مقارنة السنوات"),
             _("🤖 Predictions & Models", "🤖 التوقعات والنماذج"),
             _("📋 Data Overview", "📋 نظرة عامة"),
-            _("📸 About & Gallery", "📸 حول ومعرض الصور")  # تم تغيير الاسم
+            _("📸 About", "📸 حول")  # تم تغيير الاسم
         ]
     )
 
 data = load_data()
 df = data['main']
 
-st.markdown("""
-<div class="intro-header">
-    <h1>FORTUNE 500</h1>
-    <p>Executive Analytics Dashboard | 1996-2024</p>
-</div>
-""", unsafe_allow_html=True)
+# تم إزالة الـ intro-header بالكامل
 
 if df.empty:
     st.error(_("⚠️ Main data file not found! Please check if fortune500_cleaned.csv exists.", 
@@ -673,14 +645,14 @@ elif menu == _("📋 Data Overview", "📋 نظرة عامة"):
     
     st.markdown('</div>', unsafe_allow_html=True)
 
-# ==================== ABOUT & GALLERY (المطور في آخر صفحة مع إضافة صورة) ====================
-else:  # menu == "📸 About & Gallery"
+# ==================== ABOUT (المطور في آخر صفحة فقط) ====================
+else:  # menu == "📸 About"
     st.markdown('<div class="custom-card">', unsafe_allow_html=True)
     
-    st.header(_("📸 About & Image Gallery", "📸 حول ومعرض الصور"))
+    st.header(_("📸 About Developer", "📸 عن المطور"))
     
-    # قسمين: معلومات المطور ومعرض الصور
-    col1, col2 = st.columns([1, 1])
+    # عمودين: صورة رمزية ومعلومات المطور
+    col1, col2 = st.columns([1, 2])
     
     with col1:
         st.markdown("""
@@ -691,69 +663,54 @@ else:  # menu == "📸 About & Gallery"
         </div>
         """, unsafe_allow_html=True)
         
-        st.markdown(f"""
-        <div style="padding: 20px;">
-            <h2 style="color: white; margin-bottom: 20px; font-size: 2rem;">{_('Developer Information', 'معلومات المطور')}</h2>
-            <p style="color: #A0AEC0; font-size: 1.5rem; margin-bottom: 20px;">
-                <strong style="color: white;">Mohammad Zakaria Naser</strong>
-            </p>
-            <p style="color: white; margin-bottom: 15px; font-size: 1.1rem;">
-                {_('This Fortune 500 Analytics Dashboard was developed from scratch by Mohammad Naser in 2024.', 'تم تطوير لوحة تحليل Fortune 500 هذه من الصفر بواسطة محمد ناصر في 2024.')}
-            </p>
-            <div style="background: rgba(160, 174, 192, 0.1); border-radius: 20px; padding: 20px; margin-top: 20px; border: 1px solid rgba(255,255,255,0.1);">
-                <p style="color: #A0AEC0; margin: 8px 0;">📧 mohammad.naser@email.com</p>
-                <p style="color: #A0AEC0; margin: 8px 0;">🔗 github.com/mohammadnaser</p>
-                <p style="color: #A0AEC0; margin: 8px 0;">📅 2024</p>
-                <p style="color: #A0AEC0; margin: 8px 0;">📍 Palestine</p>
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
-    
-    with col2:
-        st.markdown("""
-        <div style="padding: 20px;">
-            <h2 style="color: white; margin-bottom: 20px;">📸 Upload Your Image</h2>
-            <p style="color: #A0AEC0; margin-bottom: 20px;">Upload an image to display in the gallery</p>
-        """, unsafe_allow_html=True)
-        
-        # مكان رفع الصورة
+        # إضافة مكان لرفع صورة شخصية
+        st.markdown("### 📸 Profile Picture")
         uploaded_file = st.file_uploader(
-            _("Choose an image...", "اختر صورة..."), 
+            _("Upload your image...", "ارفع صورتك..."), 
             type=['png', 'jpg', 'jpeg', 'gif', 'bmp']
         )
         
         if uploaded_file is not None:
-            # عرض الصورة المرفوعة
             image = Image.open(uploaded_file)
-            st.image(image, caption=_("Uploaded Image", "الصورة المرفوعة"), use_container_width=True)
-            
-            # إضافة معلومات عن الصورة
-            st.success(_("✅ Image uploaded successfully!", "✅ تم رفع الصورة بنجاح!"))
-            
-            # خيار حفظ الصورة (اختياري)
-            if st.button(_("Save to Gallery", "حفظ في المعرض")):
-                # هنا يمكن إضافة منطق لحفظ الصورة إذا أردت
-                st.balloons()
-        else:
-            # صورة افتراضية أو رسالة توجيه
-            st.info(_("👆 Please upload an image to see it here", "👆 الرجاء رفع صورة لرؤيتها هنا"))
-        
-        st.markdown("</div>", unsafe_allow_html=True)
+            st.image(image, caption=_("Your Image", "صورتك"), width=150)
+    
+    with col2:
+        st.markdown(f"""
+        <div style="padding: 20px;">
+            <h2 style="color: white; margin-bottom: 20px; font-size: 2.5rem;">{_('Developer Information', 'معلومات المطور')}</h2>
+            <p style="color: #A0AEC0; font-size: 1.8rem; margin-bottom: 20px;">
+                <strong style="color: white;">Mohammad Zakaria Naser</strong>
+            </p>
+            <p style="color: white; margin-bottom: 15px; font-size: 1.2rem;">
+                {_('This Fortune 500 Analytics Dashboard was developed from scratch by Mohammad Naser in 2024.', 'تم تطوير لوحة تحليل Fortune 500 هذه من الصفر بواسطة محمد ناصر في 2024.')}
+            </p>
+            <p style="color: white; margin-bottom: 15px; font-size: 1.2rem;">
+                {_('All code, design, and functionality are original work.', 'جميع الكود والتصميم والوظائف هي عمل أصلي.')}
+            </p>
+            <div style="background: rgba(160, 174, 192, 0.1); border-radius: 20px; padding: 25px; margin-top: 25px; border: 1px solid rgba(255,255,255,0.1);">
+                <p style="color: #A0AEC0; margin: 10px 0; font-size: 1.1rem;">📧 mohammad.naser@email.com</p>
+                <p style="color: #A0AEC0; margin: 10px 0; font-size: 1.1rem;">🔗 github.com/mohammadnaser</p>
+                <p style="color: #A0AEC0; margin: 10px 0; font-size: 1.1rem;">📅 2024</p>
+                <p style="color: #A0AEC0; margin: 10px 0; font-size: 1.1rem;">📍 Palestine</p>
+            </div>
+            <hr style="margin: 30px 0; border-color: rgba(255,255,255,0.1);">
+            <p style="color: #A0AEC0; text-align: center; font-size: 1.1rem;">
+                © 2024 {_('All Rights Reserved.', 'جميع الحقوق محفوظة.')}
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
     
     st.markdown('</div>', unsafe_allow_html=True)
     
-    # إضافة تذييل بسيط (بدون إشارة للمطور)
+    # تذييل بسيط بدون ذكر المطور
     st.markdown("""
     <div style="background: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.4) 100%);
                 backdrop-filter: blur(10px);
                 border-radius: 20px;
-                padding: 30px;
-                margin-top: 40px;
+                padding: 20px;
+                margin-top: 20px;
                 text-align: center;
                 border: 1px solid rgba(255,255,255,0.2);">
-        <p style="color: white; font-size: 1.3rem; font-weight: 600;">FORTUNE 500 EXECUTIVE ANALYTICS</p>
-        <p style="color: #A0AEC0; font-size: 1rem;">© 2024 All Rights Reserved</p>
+        <p style="color: white; font-weight: 600;">FORTUNE 500 EXECUTIVE ANALYTICS</p>
     </div>
     """, unsafe_allow_html=True)
-
-# تم إزالة الـ watermark
