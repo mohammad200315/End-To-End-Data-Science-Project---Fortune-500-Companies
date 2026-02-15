@@ -27,7 +27,7 @@ profile_image_path = r"WhatsApp Image 2026-02-10 at 1.34.39 PM.jpeg"
 background_image_base64 = get_base64_of_image(background_image_path)
 profile_image_base64 = get_base64_of_image(profile_image_path)
 
-# تهيئة حالة اللغة والقائمة
+# تهيئة حالة الشريط الجانبي في session state
 if 'lang' not in st.session_state:
     st.session_state.lang = "English"
 if 'menu' not in st.session_state:
@@ -45,6 +45,11 @@ footer {{visibility: hidden;}}
 header {{
     display: none !important;
     visibility: hidden !important;
+}}
+
+/* إخفاء أي أزرار في الأعلى */
+.stButton > button {{
+    display: none !important;
 }}
 
 /* تنسيق خلفية التطبيق */
@@ -69,6 +74,8 @@ header {{
     background: rgba(10, 10, 20, 0.95) !important;
     backdrop-filter: blur(10px) !important;
     border-right: 1px solid rgba(255,255,255,0.15) !important;
+    display: block !important;
+    width: 21rem !important;
 }}
 
 /* تنسيق صورة المطور في الشريط الجانبي */
@@ -275,6 +282,27 @@ hr {{
 </style>
 """, unsafe_allow_html=True)
 
+# ==================== تم إزالة زر التحكم بالشريط الجانبي ====================
+
+# ==================== MAIN HEADER ====================
+st.markdown(f"""
+<div style="background: linear-gradient(135deg, rgba(45, 55, 72, 0.95) 0%, rgba(26, 32, 44, 0.95) 100%);
+            backdrop-filter: blur(12px);
+            padding: 25px; 
+            border-radius: 10px; 
+            margin-bottom: 30px; 
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.25);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);">
+    <h1 style="color: white; margin: 0; font-size: 3.2rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); font-weight: 700; letter-spacing: 1px;">
+        {'Fortune 500 Analytics Dashboard' if st.session_state.lang == 'English' else 'لوحة تحليل Fortune 500'}
+    </h1>
+    <p style="color: rgba(255,255,255,0.95); margin-top: 15px; font-size: 1.4rem; text-shadow: 1px 1px 2px rgba(0,0,0,0.3);">
+        {'1996-2024 Analysis & Predictions' if st.session_state.lang == 'English' else 'تحليل وتوقعات 1996-2024'}
+    </p>
+</div>
+""", unsafe_allow_html=True)
+
 # ==================== SIDEBAR ====================
 with st.sidebar:
     st.markdown(f"""
@@ -313,27 +341,6 @@ with st.sidebar:
     
     st.markdown("<hr style='margin: 15px 0;'>", unsafe_allow_html=True)
 
-# ==================== MAIN HEADER ====================
-st.markdown(f"""
-<div style="background: linear-gradient(135deg, rgba(45, 55, 72, 0.95) 0%, rgba(26, 32, 44, 0.95) 100%);
-            backdrop-filter: blur(12px);
-            padding: 25px; 
-            border-radius: 10px; 
-            margin-bottom: 30px; 
-            margin-left: 30px;
-            margin-right: 30px;
-            text-align: center;
-            border: 1px solid rgba(255,255,255,0.25);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);">
-    <h1 style="color: white; margin: 0; font-size: 3.2rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); font-weight: 700; letter-spacing: 1px;">
-        {'Fortune 500 Analytics Dashboard' if st.session_state.lang == 'English' else 'لوحة تحليل Fortune 500'}
-    </h1>
-    <p style="color: rgba(255,255,255,0.95); margin-top: 15px; font-size: 1.4rem; text-shadow: 1px 1px 2px rgba(0,0,0,0.3);">
-        {'1996-2024 Analysis & Predictions' if st.session_state.lang == 'English' else 'تحليل وتوقعات 1996-2024'}
-    </p>
-</div>
-""", unsafe_allow_html=True)
-
 # ==================== DATA LOADING ====================
 @st.cache_data
 def load_data():
@@ -364,7 +371,7 @@ data = load_data()
 df = data['main']
 
 if df.empty:
-    st.error("Main data file not found!" if st.session_state.lang == "English" else "ملf البيانات الرئيسي غير موجود!")
+    st.error("Main data file not found!" if st.session_state.lang == "English" else "ملف البيانات الرئيسي غير موجود!")
     st.stop()
 
 df['profit_margin'] = (df['profit_mil'] / df['revenue_mil']) * 100
@@ -687,8 +694,6 @@ st.markdown(f"""
             border-radius: 35px;
             padding: 10px;
             margin-top: 10px;
-            margin-left: 30px;
-            margin-right: 30px;
             border: 1px solid rgba(255,255,255,0.2);
             text-align: center;">
     <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem; margin-top: 10px;">
