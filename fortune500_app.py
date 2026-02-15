@@ -28,16 +28,64 @@ profile_image_path = r"WhatsApp Image 2026-02-10 at 1.34.39 PM.jpeg"
 background_image_base64 = get_base64_of_image(background_image_path)
 profile_image_base64 = get_base64_of_image(profile_image_path)
 
+# ==================== SESSION STATE ====================
+if 'sidebar_open' not in st.session_state:
+    st.session_state.sidebar_open = True
+
+# ==================== TOGGLE FUNCTION ====================
+def toggle_sidebar():
+    st.session_state.sidebar_open = not st.session_state.sidebar_open
+
 # ==================== CUSTOM CSS ====================
 st.markdown(f"""
 <style>
-/* إخفاء العناصر مع ترك السهم */
+/* إخفاء عناصر Streamlit الافتراضية */
 #MainMenu {{visibility: hidden;}}
 footer {{visibility: hidden;}}
+header {{visibility: hidden;}}
 .stDeployButton {{display: none;}}
 .stAppToolbar {{display: none;}}
+.appview-container .main .block-container {{padding-top: 0rem; padding-bottom: 0rem;}}
 
-/* تنسيق خلفية التطبيق */
+/* تنسيق زر التحكم بالشريط الجانبي */
+.sidebar-button {{
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 999999;
+    background: linear-gradient(135deg, #4A5568 0%, #2D3748 100%);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    font-size: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+    border: none;
+}}
+
+.sidebar-button:hover {{
+    transform: scale(1.1);
+    background: linear-gradient(135deg, #2D3748 0%, #1A202C 100%);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+}}
+
+/* تنسيق الشريط الجانبي */
+section[data-testid="stSidebar"] {{
+    transition: margin-left 0.3s ease;
+}}
+
+section[data-testid="stSidebar"][aria-expanded="false"] {{
+    margin-left: -21rem;
+}}
+
+/* خلفية التطبيق */
 .stApp {{
     background-image: url("data:image/jpeg;base64,{background_image_base64}");
     background-size: cover;
@@ -55,7 +103,7 @@ footer {{visibility: hidden;}}
 }}
 
 /* تنسيق الشريط الجانبي */
-section[data-testid="stSidebar"] > div:first-child {{
+[data-testid="stSidebar"] > div:first-child {{
     background: rgba(10, 10, 20, 0.85) !important;
     backdrop-filter: blur(10px) !important;
     border-right: 1px solid rgba(255,255,255,0.15) !important;
@@ -70,6 +118,7 @@ section[data-testid="stSidebar"] > div:first-child {{
     margin-bottom: 30px;
     border: 1px solid rgba(255,255,255,0.2);
     backdrop-filter: blur(5px);
+    animation: fadeIn 1s ease;
 }}
 
 .developer-image {{
@@ -79,18 +128,30 @@ section[data-testid="stSidebar"] > div:first-child {{
     margin: 0 auto 15px;
     border: 3px solid #A0AEC0;
     box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
     object-fit: contain;
     background: linear-gradient(135deg, #4A5568 0%, #2D3748 100%);
+}}
+
+.developer-image:hover {{
+    transform: scale(1.05);
+    border-color: white;
+    box-shadow: 0 12px 25px rgba(160, 174, 192, 0.4);
 }}
 
 .developer-name {{
     color: white;
     font-size: 1.3rem;
     font-weight: 700;
+    margin-bottom: 5px;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }}
 
-/* تنسيق البطاقات */
+@keyframes fadeIn {{
+    from {{ opacity: 0; transform: translateY(-20px); }}
+    to {{ opacity: 1; transform: translateY(0); }}
+}}
+
 .custom-card {{
     background: rgba(20, 25, 40, 0.75) !important;
     backdrop-filter: blur(12px) !important;
@@ -108,20 +169,30 @@ section[data-testid="stSidebar"] > div:first-child {{
     text-shadow: 1px 1px 3px rgba(0,0,0,0.3) !important;
 }}
 
-/* تنسيق الأزرار */
 .stButton > button {{
     background: linear-gradient(135deg, #4A5568 0%, #2D3748 100%) !important;
     color: white !important;
+    border: none !important;
     border-radius: 12px !important;
+    padding: 12px 24px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.5px !important;
     border: 1px solid rgba(255,255,255,0.2) !important;
+    transition: all 0.3s ease !important;
 }}
 
-/* تنسيق التبويبات */
+.stButton > button:hover {{
+    transform: translateY(-3px) !important;
+    box-shadow: 0 8px 20px rgba(74, 85, 104, 0.4) !important;
+    background: linear-gradient(135deg, #2D3748 0%, #1A202C 100%) !important;
+}}
+
 .stTabs [data-baseweb="tab-list"] {{
     gap: 12px;
     background: rgba(0,0,0,0.3);
     padding: 8px;
     border-radius: 16px;
+    backdrop-filter: blur(5px);
 }}
 
 .stTabs [data-baseweb="tab"] {{
@@ -130,13 +201,105 @@ section[data-testid="stSidebar"] > div:first-child {{
     color: white !important;
     padding: 12px 24px;
     border: 1px solid rgba(255,255,255,0.15);
+    font-weight: 500;
+    transition: all 0.3s ease;
 }}
 
 .stTabs [aria-selected="true"] {{
     background: linear-gradient(135deg, #4A5568 0%, #2D3748 100%) !important;
+    color: white !important;
+    border: none;
+    box-shadow: 0 4px 12px rgba(74, 85, 104, 0.3);
 }}
 
-/* تنسيق الـ Radio buttons */
+.stSelectbox, .stDropdown {{
+    background: rgba(30, 35, 50, 0.8);
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.2);
+    backdrop-filter: blur(5px);
+}}
+
+.stSelectbox label, .stDropdown label {{
+    color: #ffffff !important;
+    font-weight: 600 !important;
+    font-size: 1rem !important;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5) !important;
+}}
+
+.stSelectbox > div > div {{
+    background: rgba(40, 45, 60, 0.9) !important;
+    color: white !important;
+    border: 1px solid rgba(255,255,255,0.2) !important;
+    border-radius: 8px !important;
+}}
+
+h1, h2, h3, h4, h5, h6 {{
+    color: #ffffff !important;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5) !important;
+    letter-spacing: 0.5px !important;
+}}
+
+.stMarkdown {{
+    color: #ffffff !important;
+}}
+
+.stMarkdown p, .stMarkdown span {{
+    color: rgba(255,255,255,0.95) !important;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3) !important;
+}}
+
+.stMetric {{
+    background: rgba(30, 35, 50, 0.7) !important;
+    backdrop-filter: blur(8px) !important;
+    padding: 20px !important;
+    border-radius: 16px !important;
+    border: 1px solid rgba(255,255,255,0.2) !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2) !important;
+}}
+
+.stMetric label {{
+    color: rgba(255,255,255,0.9) !important;
+    font-size: 0.9rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+}}
+
+.stMetric div {{
+    color: #ffffff !important;
+    font-size: 1.8rem !important;
+    font-weight: 700 !important;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3) !important;
+}}
+
+.dataframe, .stDataFrame {{
+    background: rgba(30, 35, 50, 0.8) !important;
+    backdrop-filter: blur(8px) !important;
+    border-radius: 12px !important;
+    padding: 10px !important;
+    border: 1px solid rgba(255,255,255,0.2) !important;
+}}
+
+.stDataFrame td, .stDataFrame th {{
+    color: #ffffff !important;
+    background: transparent !important;
+    border-bottom: 1px solid rgba(255,255,255,0.1) !important;
+    padding: 12px !important;
+}}
+
+.stDataFrame th {{
+    background: rgba(74, 85, 104, 0.3) !important;
+    color: white !important;
+    font-weight: 600 !important;
+}}
+
+.stSuccess, .stInfo {{
+    background: rgba(30, 35, 50, 0.8) !important;
+    backdrop-filter: blur(8px) !important;
+    color: white !important;
+    border: 1px solid rgba(255,255,255,0.2) !important;
+    border-radius: 12px !important;
+}}
+
 .stRadio > div {{
     background: rgba(30, 35, 50, 0.6) !important;
     backdrop-filter: blur(8px) !important;
@@ -148,27 +311,9 @@ section[data-testid="stSidebar"] > div:first-child {{
 .stRadio label {{
     color: white !important;
     font-size: 1rem !important;
+    padding: 8px !important;
 }}
 
-/* تنسيق الـ Metric */
-.stMetric {{
-    background: rgba(30, 35, 50, 0.7) !important;
-    backdrop-filter: blur(8px) !important;
-    padding: 20px !important;
-    border-radius: 16px !important;
-    border: 1px solid rgba(255,255,255,0.2) !important;
-}}
-
-.stMetric label {{
-    color: rgba(255,255,255,0.9) !important;
-}}
-
-.stMetric div {{
-    color: #ffffff !important;
-    font-size: 1.8rem !important;
-}}
-
-/* تنسيق الفواصل */
 hr {{
     border: none !important;
     height: 2px !important;
@@ -176,51 +321,82 @@ hr {{
     margin: 30px 0 !important;
 }}
 
-/* تنسيق النصوص */
-h1, h2, h3, h4, h5, h6, p, span {{
-    color: #ffffff !important;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5) !important;
+.sidebar-content p, .sidebar-content span, .sidebar-content div {{
+    color: white !important;
+}}
+
+.stNumberInput > div > div > input {{
+    background: rgba(40, 45, 60, 0.9) !important;
+    color: white !important;
+    border: 1px solid rgba(255,255,255,0.2) !important;
+    border-radius: 8px !important;
+}}
+
+/* تنسيق للشريط الجانبي */
+.sidebar-section {{
+    background: rgba(20, 25, 40, 0.4);
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid rgba(255,255,255,0.1);
+}}
+
+.sidebar-title {{
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-align: center;
 }}
 </style>
 """, unsafe_allow_html=True)
 
-# ==================== SIDEBAR ====================
-with st.sidebar:
-    st.markdown(f"""
-    <div class="developer-profile">
-        <img src="data:image/jpeg;base64,{profile_image_base64}" class="developer-image" alt="Developer">
-        <div class="developer-name">Mohammad Naser</div>
-    </div> 
-    """, unsafe_allow_html=True)
- 
-    lang = st.radio("Language / اللغة", ["English", "العربية"], index=0, key="language")
-    
-    st.markdown("<hr style='margin: 15px 0;'>", unsafe_allow_html=True)
+# ==================== SIDEBAR TOGGLE BUTTON ====================
+col1, col2, col3 = st.columns([1, 20, 1])
+with col1:
+    if st.button("☰", key="sidebar_btn"):
+        toggle_sidebar()
+        st.rerun()
 
-    if lang == "English":
-        menu_options = [
-            "📊 Year Analysis",
-            "🏢 Company Analysis",
-            "⚖️ Year Comparison",
-            "🤖 Predictions & Models",
-            "📈 Data Overview"
-        ]
-    else:
-        menu_options = [
-            "📊 تحليل السنوات",
-            "🏢 تحليل الشركات",
-            "⚖️ مقارنة السنوات",
-            "🤖 التوقعات والنماذج",
-            "📈 نظرة عامة"
-        ]
+# ==================== SIDEBAR (يتحكم فيه الزر) ====================
+if st.session_state.sidebar_open:
+    with st.sidebar:
+        st.markdown(f"""
+        <div class="developer-profile">
+            <img src="data:image/jpeg;base64,{profile_image_base64}" class="developer-image" alt="Developer">
+            <div class="developer-name">Mohammad Naser</div>
+        </div> 
+        """, unsafe_allow_html=True)
+     
+        lang = st.radio("Language / اللغة", ["English", "العربية"], index=0, key="language")
+        
+        st.markdown("<hr style='margin: 15px 0;'>", unsafe_allow_html=True)
     
-    menu = st.radio(
-        "Select Analysis" if lang == "English" else "اختر التحليل",
-        menu_options,
-        key="analysis_menu"
-    )
-    
-    st.markdown("<hr style='margin: 15px 0;'>", unsafe_allow_html=True)
+        if lang == "English":
+            menu_options = [
+                "📊 Year Analysis",
+                "🏢 Company Analysis",
+                "⚖️ Year Comparison",
+                "🤖 Predictions & Models",
+                "📈 Data Overview"
+            ]
+        else:
+            menu_options = [
+                "📊 تحليل السنوات",
+                "🏢 تحليل الشركات",
+                "⚖️ مقارنة السنوات",
+                "🤖 التوقعات والنماذج",
+                "📈 نظرة عامة"
+            ]
+        
+        menu = st.radio(
+            "Select Analysis" if lang == "English" else "اختر التحليل",
+            menu_options,
+            key="analysis_menu"
+        )
+        
+        st.markdown("<hr style='margin: 15px 0;'>", unsafe_allow_html=True)
 
 # ==================== DATA LOADING ====================
 @st.cache_data
@@ -228,22 +404,26 @@ def load_data():
     files = {}
     try:
         files['main'] = pd.read_csv('fortune500_cleaned.csv')
-        st.sidebar.success(f"✅ Main: {len(files['main']):,} rows")
+        if st.session_state.sidebar_open:
+            st.sidebar.success(f"✅ Main: {len(files['main']):,} rows")
     except:
         files['main'] = pd.DataFrame()
     try:
         files['pred2024'] = pd.read_csv('fortune500_2024_predictions.csv')
-        st.sidebar.success(f"✅ 2024: {len(files['pred2024']):,} rows")
+        if st.session_state.sidebar_open:
+            st.sidebar.success(f"✅ 2024: {len(files['pred2024']):,} rows")
     except:
         files['pred2024'] = pd.DataFrame()
     try:
         files['models'] = pd.read_csv('fortune500_models_performance.csv')
-        st.sidebar.success(f"✅ Models: {len(files['models'])} models")
+        if st.session_state.sidebar_open:
+            st.sidebar.success(f"✅ Models: {len(files['models'])} models")
     except:
         files['models'] = pd.DataFrame()
     try:
         files['test'] = pd.read_csv('fortune500_test_predictions.csv')
-        st.sidebar.success(f"✅ Test: {len(files['test']):,} rows")
+        if st.session_state.sidebar_open:
+            st.sidebar.success(f"✅ Test: {len(files['test']):,} rows")
     except:
         files['test'] = pd.DataFrame()
     return files
@@ -267,10 +447,10 @@ st.markdown(f"""
             text-align: center;
             border: 1px solid rgba(255,255,255,0.25);
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);">
-    <h1 style="color: white; margin: 0; font-size: 3.2rem;">
+    <h1 style="color: white; margin: 0; font-size: 3.2rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); font-weight: 700; letter-spacing: 1px;">
         {'Fortune 500 Analytics Dashboard' if lang == 'English' else 'لوحة تحليل Fortune 500'}
     </h1>
-    <p style="color: rgba(255,255,255,0.95); margin-top: 15px; font-size: 1.4rem;">
+    <p style="color: rgba(255,255,255,0.95); margin-top: 15px; font-size: 1.4rem; text-shadow: 1px 1px 2px rgba(0,0,0,0.3);">
         {'1996-2024 Analysis & Predictions' if lang == 'English' else 'تحليل وتوقعات 1996-2024'}
     </p>
 </div>
