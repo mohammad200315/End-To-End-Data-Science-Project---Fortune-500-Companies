@@ -267,11 +267,50 @@ div[data-testid="stMetric"]:nth-of-type(1) div {{
 </style>
 """, unsafe_allow_html=True)
 
-lang = st.sidebar.radio("Language / اللغة", ["English", "العربية"], index=0)
+# ==================== SIDEBAR - MOVED SELECT ANALYSIS ABOVE LANGUAGE ====================
+with st.sidebar:
+    st.markdown(f"""
+    <div style="background: linear-gradient(135deg, rgba(45, 55, 72, 0.25) 0%, rgba(26, 32, 44, 0.25) 100%);
+                backdrop-filter: blur(12px);
+                padding: 25px; 
+                border-radius: 20px; 
+                margin-bottom: 25px;
+                border: 1px solid rgba(255,255,255,0.2);">
+        <h3 style="color: white; margin-top: 0; font-size: 1.5rem; text-shadow: 1px 1px 2px rgba(0,0,0,0.3);">
+            {_('Control Panel', 'لوحة التحكم')}
+        </h3>
+        <p style="color: rgba(255,255,255,0.9); margin-bottom: 0; font-size: 1rem;">
+            {_('Developer: Mohammad Naser', 'المطور: محمد زكريا ناصر')}
+        </p>
+        <p style="color: rgba(255,255,255,0.7); margin-bottom: 0; font-size: 0.9rem;">
+            {_('Data Analyst', 'محلل بيانات')}
+        </p>
+    </div>
+    """, unsafe_allow_html=True)
+    
+    # SELECT ANALYSIS FIRST (NOW ABOVE LANGUAGE)
+    menu_selection = st.radio(
+        _("Select Analysis", "اختر التحليل"),
+        [
+            _("Year Analysis", "تحليل السنوات"),
+            _("Company Analysis", "تحليل الشركات"),
+            _("Year Comparison", "مقارنة السنوات"),
+            _("Predictions & Models", "التوقعات والنماذج"),
+            _("Data Overview", "نظرة عامة")
+        ],
+        key="analysis_menu"
+    )
+    
+    st.markdown("<hr style='margin: 20px 0;'>", unsafe_allow_html=True)
+    
+    # LANGUAGE SELECTION BELOW
+    lang = st.radio("Language / اللغة", ["English", "العربية"], index=0, key="language")
 
+# ==================== TRANSLATION FUNCTION ====================
 def _(en, ar):
     return en if lang == "English" else ar
 
+# ==================== DATA LOADING ====================
 @st.cache_data
 def load_data():
     files = {}
@@ -323,6 +362,7 @@ colors = {
     'gray3': '#EDF2F7'
 }
 
+# ==================== MAIN HEADER ====================
 st.markdown(f"""
 <div style="background: linear-gradient(135deg, rgba(45, 55, 72, 0.95) 0%, rgba(26, 32, 44, 0.95) 100%);
             backdrop-filter: blur(12px);
@@ -338,41 +378,11 @@ st.markdown(f"""
     <p style="color: rgba(255,255,255,0.95); margin-top: 15px; font-size: 1.4rem; text-shadow: 1px 1px 2px rgba(0,0,0,0.3);">
         {_('1996-2024 Analysis & Predictions', 'تحليل وتوقعات 1996-2024')}
     </p>
-   
-    
 </div>
 """, unsafe_allow_html=True)
 
-with st.sidebar:
-    st.markdown(f"""
-    <div style="background: linear-gradient(135deg, rgba(45, 55, 72, 0.25) 0%, rgba(26, 32, 44, 0.25) 100%);
-                backdrop-filter: blur(12px);
-                padding: 25px; 
-                border-radius: 20px; 
-                margin-bottom: 25px;
-                border: 1px solid rgba(255,255,255,0.2);">
-        <h3 style="color: white; margin-top: 0; font-size: 1.5rem; text-shadow: 1px 1px 2px rgba(0,0,0,0.3);">
-            {_('Control Panel', 'لوحة التحكم')}
-        </h3>
-        <p style="color: rgba(255,255,255,0.9); margin-bottom: 0; font-size: 1rem;">
-            {_('Developer: Mohammad Naser', 'المطور: محمد زكريا ناصر')}
-        </p>
-        <p style="color: rgba(255,255,255,0.7); margin-bottom: 0; font-size: 0.9rem;">
-            {_('Data Analyst', 'محلل بيانات')}
-        </p>
-    </div>
-    """, unsafe_allow_html=True)
-    
-    menu = st.radio(
-        _("Select Analysis", "اختر التحليل"),
-        [
-            _("Year Analysis", "تحليل السنوات"),
-            _("Company Analysis", "تحليل الشركات"),
-            _("Year Comparison", "مقارنة السنوات"),
-            _("Predictions & Models", "التوقعات والنماذج"),
-            _("Data Overview", "نظرة عامة")
-        ]
-    )
+# ==================== MAIN CONTENT BASED ON SELECTION ====================
+menu = menu_selection  # Use the selection from sidebar
 
 if menu == _("Year Analysis", "تحليل السنوات"):
     st.markdown('<div class="custom-card">', unsafe_allow_html=True)
@@ -663,6 +673,7 @@ else:
     
     st.markdown('</div>', unsafe_allow_html=True)
 
+# ==================== FOOTER ====================
 st.markdown(f"""
 <div style="background: linear-gradient(135deg, rgba(45, 55, 72, 0.9) 0%, rgba(26, 32, 44, 0.9) 100%);
             backdrop-filter: blur(12px);
