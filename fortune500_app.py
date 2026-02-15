@@ -37,6 +37,7 @@ st.markdown(f"""
 }}
 
 .main > div {{
+    background: rgba(0, 0, 0, 0.65) !important;
     backdrop-filter: blur(8px) !important;
     border-radius: 20px !important;
     padding: 20px !important;
@@ -44,7 +45,6 @@ st.markdown(f"""
 }}
 
 .css-1d391kg, .css-163ttbj, [data-testid="stSidebar"] > div:first-child {{
-    background: rgba(10, 10, 20, 0.85) !important;
     backdrop-filter: blur(10px) !important;
     border-right: 1px solid rgba(255,255,255,0.15) !important;
 }}
