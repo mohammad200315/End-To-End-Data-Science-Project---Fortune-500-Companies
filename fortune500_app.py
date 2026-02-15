@@ -348,7 +348,7 @@ with st.sidebar:
         
         <div class="developer-title">Mohammad Naser</div>
         <div style="color: #A0AEC0; font-size: 0.8rem; margin-top: 5px;">
-            ⭐ {("Data Analyst", "محلل بيانات")}
+            ⭐ 'Data Analyst', 'محلل بيانات'
         </div>
     </div>
     """, unsafe_allow_html=True)
