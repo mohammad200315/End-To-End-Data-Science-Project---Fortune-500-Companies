@@ -12,7 +12,7 @@ st.set_page_config(
     page_title="Fortune 500 Analytics Dashboard",
     page_icon="icon.jpeg",
     layout="wide",
-    initial_sidebar_state="expanded"  # هذا يضمن ظهور الصفحة الجانبية
+    initial_sidebar_state="expanded"
 )
 
 def get_base64_of_image(image_path):
@@ -52,13 +52,13 @@ footer {{visibility: hidden;}}
     margin: 10px !important;
 }}
 
-/* تنسيق الشريط الجانبي - هذا مهم لظهوره */
+/* تنسيق الشريط الجانبي */
 [data-testid="stSidebar"] > div:first-child {{
     background: rgba(10, 10, 20, 0.95) !important;
     backdrop-filter: blur(10px) !important;
     border-right: 1px solid rgba(255,255,255,0.15) !important;
-    display: block !important;  /* تأكيد ظهور الشريط الجانبي */
-    width: 21rem !important;    /* تحديد العرض */
+    display: block !important;
+    width: 21rem !important;
 }}
 
 /* تنسيق صورة المطور في الشريط الجانبي */
@@ -283,7 +283,7 @@ hr {{
 </style>
 """, unsafe_allow_html=True)
 
-# ==================== SIDEBAR - هذا هو المهم ====================
+# ==================== SIDEBAR ====================
 with st.sidebar:
     st.markdown(f"""
     <div class="developer-profile">
@@ -355,25 +355,6 @@ if df.empty:
     st.stop()
 
 df['profit_margin'] = (df['profit_mil'] / df['revenue_mil']) * 100
-
-# ==================== MAIN HEADER ====================
-st.markdown(f"""
-<div style="background: linear-gradient(135deg, rgba(45, 55, 72, 0.95) 0%, rgba(26, 32, 44, 0.95) 100%);
-            backdrop-filter: blur(12px);
-            padding: 25px; 
-            border-radius: 10px; 
-            margin-bottom: 30px; 
-            text-align: center;
-            border: 1px solid rgba(255,255,255,0.25);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);">
-    <h1 style="color: white; margin: 0; font-size: 3.2rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); font-weight: 700; letter-spacing: 1px;">
-        {'Fortune 500 Analytics Dashboard' if lang == 'English' else 'لوحة تحليل Fortune 500'}
-    </h1>
-    <p style="color: rgba(255,255,255,0.95); margin-top: 15px; font-size: 1.4rem; text-shadow: 1px 1px 2px rgba(0,0,0,0.3);">
-        {'1996-2024 Analysis & Predictions' if lang == 'English' else 'تحليل وتوقعات 1996-2024'}
-    </p>
-</div>
-""", unsafe_allow_html=True)
 
 # ==================== MAIN CONTENT BASED ON SELECTION ====================
 if menu == "📊 Year Analysis" or menu == "📊 تحليل السنوات":
