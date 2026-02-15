@@ -426,7 +426,7 @@ st.markdown(f"""
 <div style="background: linear-gradient(135deg, rgba(45, 55, 72, 0.95) 0%, rgba(26, 32, 44, 0.95) 100%);
             backdrop-filter: blur(12px);
             padding: 25px; 
-            border-radius: 20px; 
+            border-radius: 10px; 
             margin-bottom: 150px; 
             text-align: center;
             border: 1px solid rgba(255,255,255,0.25);
@@ -436,9 +436,6 @@ st.markdown(f"""
     </h1>
     <p style="color: rgba(255,255,255,0.95); margin-top: 15px; font-size: 1.4rem; text-shadow: 1px 1px 2px rgba(0,0,0,0.3);">
         {'1996-2024 Analysis & Predictions' if lang == 'English' else 'تحليل وتوقعات 1996-2024'}
-    </p>
-    <p style="color: #A0AEC0; margin-top: 10px; font-size: 1rem;">
-        {'Developed by Mohammad Naser' if lang == 'English' else 'تم التطوير بواسطة محمد ناصر'}
     </p>
 </div>
 """, unsafe_allow_html=True)
