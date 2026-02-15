@@ -184,12 +184,7 @@ st.markdown(f"""
     text-shadow: 1px 1px 2px rgba(0,0,0,0.5) !important;
 }}
 
-.stSelectbox > div > div {{
-    background: rgba(40, 45, 60, 0.9) !important;
-    color: white !important;
-    border: 1px solid rgba(255,255,255,0.2) !important;
-    border-radius: 8px !important;
-}}
+
 
 h1, h2, h3, h4, h5, h6 {{
     color: #ffffff !important;
@@ -358,7 +353,7 @@ with st.sidebar:
     st.markdown("<hr style='margin: 15px 0;'>", unsafe_allow_html=True)
 
     
-    # SELECT ANALYSIS (بدون استخدام دالة الترجمة)
+    
     if lang == "English":
         menu_options = [
             "📊 Year Analysis",
@@ -392,22 +387,22 @@ def load_data():
     files = {}
     try:
         files['main'] = pd.read_csv('fortune500_cleaned.csv')
-        st.sidebar.success(f"✅ Main: {len(files['main']):,} rows")
+        st.sidebar.success(f"Main: {len(files['main']):,} rows")
     except:
         files['main'] = pd.DataFrame()
     try:
         files['pred2024'] = pd.read_csv('fortune500_2024_predictions.csv')
-        st.sidebar.success(f"✅ 2024: {len(files['pred2024']):,} rows")
+        st.sidebar.success(f"2024: {len(files['pred2024']):,} rows")
     except:
         files['pred2024'] = pd.DataFrame()
     try:
         files['models'] = pd.read_csv('fortune500_models_performance.csv')
-        st.sidebar.success(f"✅ Models: {len(files['models'])} models")
+        st.sidebar.success(f"Models: {len(files['models'])} models")
     except:
         files['models'] = pd.DataFrame()
     try:
         files['test'] = pd.read_csv('fortune500_test_predictions.csv')
-        st.sidebar.success(f"✅ Test: {len(files['test']):,} rows")
+        st.sidebar.success(f"Test: {len(files['test']):,} rows")
     except:
         files['test'] = pd.DataFrame()
     return files
