@@ -327,7 +327,6 @@ st.markdown("""
 <div class="intro-header">
     <h1>FORTUNE 500</h1>
     <p>Executive Analytics Dashboard | 1996-2024</p>
-    <!-- تم إزالة developer-badge من هنا -->
 </div>
 """, unsafe_allow_html=True)
 
@@ -342,7 +341,7 @@ df['profit_bil'] = df['profit_mil'] / 1000
 
 # ==================== YEAR ANALYSIS ====================
 if menu == _("📅 Year Analysis", "📅 تحليل السنوات"):
-    ##st.markdown('<div class="custom-card">', unsafe_allow_html=True)
+    st.markdown('<div class="custom-card">', unsafe_allow_html=True)
     st.header(_("📅 Year Analysis", "📅 تحليل السنوات"))
     
     col1, col2 = st.columns([3,1])
