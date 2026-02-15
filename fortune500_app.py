@@ -63,8 +63,8 @@ header {{visibility: hidden;}}
     text-align: center;
     padding: 20px;
     background: linear-gradient(135deg, rgba(45, 55, 72, 0.3) 0%, rgba(26, 32, 44, 0.3) 100%);
-    border-radius: 20px;
-    margin-bottom: 20px;
+    border-radius: 30px;
+    margin-bottom: 30px;
     border: 1px solid rgba(255,255,255,0.2);
     backdrop-filter: blur(5px);
     animation: fadeIn 1s ease;
@@ -354,11 +354,10 @@ with st.sidebar:
     <div class="developer-profile">
         <img src="data:image/jpeg;base64,{profile_image_base64}" class="developer-image" alt="Developer">
         <div class="developer-name">Mohammad Naser</div>
-        <div class="developer-title">Data Analyst</div>
         <div style="color: #A0AEC0; font-size: 0.8rem; margin-top: 5px;">
-            ⭐ Fortune 500 Expert
+            
         </div>
-    </div>
+    </div> 
     """, unsafe_allow_html=True)
  
     lang = st.radio("Language / اللغة", ["English", "العربية"], index=0, key="language")
@@ -763,7 +762,7 @@ st.markdown(f"""
             border: 1px solid rgba(255,255,255,0.2);
             text-align: center;">
     <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem; margin-top: 10px;">
-        © 2024 {'All Rights Reserved' if lang == 'English' else 'جميع الحقوق محفوظة'}
+        © 2026 {'All Rights Reserved' if lang == 'English' else 'جميع الحقوق محفوظة'}
     </p>
 </div>
 """, unsafe_allow_html=True)
