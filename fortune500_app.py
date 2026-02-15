@@ -32,6 +32,8 @@ if 'sidebar_visible' not in st.session_state:
     st.session_state.sidebar_visible = True
 if 'lang' not in st.session_state:
     st.session_state.lang = "English"
+if 'menu' not in st.session_state:
+    st.session_state.menu = "📊 Year Analysis"
 
 # دالة لتبديل حالة الشريط الجانبي
 def toggle_sidebar():
@@ -70,7 +72,7 @@ footer {{visibility: hidden;}}
 }}
 
 /* تنسيق زر التحكم بالشريط الجانبي */
-.sidebar-toggle-btn {{
+.stButton > button {{
     position: fixed !important;
     top: 20px !important;
     left: 20px !important;
@@ -89,10 +91,10 @@ footer {{visibility: hidden;}}
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    text-decoration: none !important;
+    padding: 0 !important;
 }}
 
-.sidebar-toggle-btn:hover {{
+.stButton > button:hover {{
     transform: scale(1.1) !important;
     background: linear-gradient(135deg, #2D3748 0%, #1A202C 100%) !important;
     border-color: white !important;
@@ -160,8 +162,9 @@ footer {{visibility: hidden;}}
     text-shadow: 1px 1px 3px rgba(0,0,0,0.3) !important;
 }}
 
-/* تنسيق الأزرار */
-.stButton > button {{
+/* تنسيق الأزرار العادية */
+.stButton > button:not(:first-of-type) {{
+    position: static !important;
     background: linear-gradient(135deg, #4A5568 0%, #2D3748 100%) !important;
     color: white !important;
     border: none !important;
@@ -170,9 +173,12 @@ footer {{visibility: hidden;}}
     font-weight: 600 !important;
     border: 1px solid rgba(255,255,255,0.2) !important;
     transition: all 0.3s ease !important;
+    width: auto !important;
+    height: auto !important;
+    font-size: 1rem !important;
 }}
 
-.stButton > button:hover {{
+.stButton > button:not(:first-of-type):hover {{
     transform: translateY(-3px) !important;
     box-shadow: 0 8px 20px rgba(74, 85, 104, 0.4) !important;
     background: linear-gradient(135deg, #2D3748 0%, #1A202C 100%) !important;
@@ -338,7 +344,7 @@ if st.session_state.sidebar_visible:
         </div> 
         """, unsafe_allow_html=True)
      
-        st.session_state.lang = st.radio("Language / اللغة", ["English", "العربية"], index=0, key="language")
+        st.session_state.lang = st.radio("Language / اللغة", ["English", "العربية"], index=0, key="language_radio")
         
         st.markdown("<hr style='margin: 15px 0;'>", unsafe_allow_html=True)
 
@@ -359,20 +365,16 @@ if st.session_state.sidebar_visible:
                 "📈 نظرة عامة"
             ]
         
-        menu = st.radio(
+        st.session_state.menu = st.radio(
             "Select Analysis" if st.session_state.lang == "English" else "اختر التحليل",
             menu_options,
-            key="analysis_menu"
+            key="analysis_menu_radio"
         )
         
         st.markdown("<hr style='margin: 15px 0;'>", unsafe_allow_html=True)
 else:
-    # إذا كان الشريط الجانبي مخفي، نستخدم القيم الافتراضية
-    if 'lang' not in st.session_state:
-        st.session_state.lang = "English"
-    if 'analysis_menu' not in st.session_state:
-        st.session_state.analysis_menu = "📊 Year Analysis"
-    menu = st.session_state.analysis_menu
+    # استخدام القيم المخزنة في session state
+    pass
 
 # ==================== DATA LOADING ====================
 @st.cache_data
@@ -382,7 +384,7 @@ def load_data():
         files['main'] = pd.read_csv('fortune500_cleaned.csv')
         if st.session_state.sidebar_visible:
             st.sidebar.success(f"✅ Main: {len(files['main']):,} rows")
-    except:
+    except Exception as e:
         files['main'] = pd.DataFrame()
     try:
         files['pred2024'] = pd.read_csv('fortune500_2024_predictions.csv')
@@ -433,6 +435,8 @@ st.markdown(f"""
 """, unsafe_allow_html=True)
 
 # ==================== MAIN CONTENT BASED ON SELECTION ====================
+menu = st.session_state.menu
+
 if menu == "📊 Year Analysis" or menu == "📊 تحليل السنوات":
     st.markdown('<div class="custom-card">', unsafe_allow_html=True)
     st.header("📊 Year Analysis" if st.session_state.lang == "English" else "📊 تحليل السنوات")
@@ -494,9 +498,6 @@ if menu == "📊 Year Analysis" or menu == "📊 تحليل السنوات":
                                  height=500, font=dict(color='white'), title_font_color='white')
                 st.plotly_chart(fig2, use_container_width=True)
     st.markdown('</div>', unsafe_allow_html=True)
-
-# ==================== باقي الأقسام مع نفس التعديل (Company Analysis, Year Comparison, Predictions, Data Overview) ====================
-# (نفس الكود لكن استبدل كل lang بـ st.session_state.lang)
 
 elif menu == "🏢 Company Analysis" or menu == "🏢 تحليل الشركات":
     st.markdown('<div class="custom-card">', unsafe_allow_html=True)
@@ -592,6 +593,7 @@ elif menu == "🤖 Predictions & Models" or menu == "🤖 التوقعات وا�
         st.subheader("2024 Predictions" if st.session_state.lang == "English" else "توقعات 2024")
         df_pred = data['pred2024']
         
+        # محاولة تحديد الأعمدة المناسبة
         revenue_col = None
         name_col = None
         rank_col = None
@@ -731,6 +733,9 @@ else:  # Data Overview
                      plot_bgcolor='rgba(0,0,0,0)', paper_bgcolor='rgba(0,0,0,0)', 
                      font=dict(color='white', size=12), title_font_color='white',
                      legend_font_color='white')
+    
+    fig.update_xaxes(gridcolor='rgba(255,255,255,0.1)', gridwidth=1)
+    fig.update_yaxes(gridcolor='rgba(255,255,255,0.1)', gridwidth=1)
     
     st.plotly_chart(fig, use_container_width=True)
     
