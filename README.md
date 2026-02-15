@@ -9,6 +9,6 @@
 . Technologies used: Python, Pandas, NumPy, Plotly, Streamlit, Scikit-learn
 
 ## Live Project
-[View the Dashboard](https://end-to-end-data-science-project---fortune-500-companies-hfvd7r.streamlit.app/)
+[View the Dashboard](https://end-to-end-data-science-project---fortune-500-companies-hfvd7r.streamlit.app//)
 
 
