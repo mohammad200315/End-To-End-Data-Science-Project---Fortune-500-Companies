@@ -27,6 +27,11 @@ profile_image_path = r"WhatsApp Image 2026-02-10 at 1.34.39 PM.jpeg"
 background_image_base64 = get_base64_of_image(background_image_path)
 profile_image_base64 = get_base64_of_image(profile_image_path)
 
+# ==================== SESSION STATE FOR SIDEBAR ====================
+if 'sidebar_state' not in st.session_state:
+    st.session_state.sidebar_state = 'expanded'
+
+# ==================== CUSTOM CSS ====================
 st.markdown(f"""
 <style>
 /* إخفاء عناصر Streamlit الافتراضية */
@@ -36,6 +41,34 @@ header {{visibility: hidden;}}
 .stDeployButton {{display: none;}}
 .stAppToolbar {{display: none;}}
 .appview-container .main .block-container {{padding-top: 0rem; padding-bottom: 0rem;}}
+
+/* تنسيق زر إظهار الشريط الجانبي */
+.sidebar-toggle-btn {{
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 99999;
+    background: linear-gradient(135deg, #4A5568 0%, #2D3748 100%);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}}
+
+.sidebar-toggle-btn:hover {{
+    transform: scale(1.1);
+    box-shadow: 0 8px 25px rgba(74, 85, 104, 0.5);
+    background: linear-gradient(135deg, #2D3748 0%, #1A202C 100%);
+}}
 
 .stApp {{
     background-image: url("data:image/jpeg;base64,{background_image_base64}");
@@ -78,8 +111,8 @@ header {{visibility: hidden;}}
     border: 3px solid #A0AEC0;
     box-shadow: 0 8px 20px rgba(0,0,0,0.3);
     transition: all 0.3s ease;
-    object-fit: contain;  /* تم التغيير من cover إلى contain */
-    background-color: rgba(255,255,255,0.1); /* لون خلفية للصورة */
+    object-fit: contain;
+    background: linear-gradient(135deg, #4A5568 0%, #2D3748 100%);
 }}
 
 .developer-image:hover {{
@@ -94,24 +127,6 @@ header {{visibility: hidden;}}
     font-weight: 700;
     margin-bottom: 5px;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-}}
-
-.developer-title {{
-    color: #A0AEC0;
-    font-size: 0.9rem;
-    margin-bottom: 10px;
-    letter-spacing: 1px;
-}}
-
-.developer-badge {{
-    display: inline-block;
-    background: linear-gradient(135deg, #4A5568 0%, #2D3748 100%);
-    color: white;
-    padding: 5px 15px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    margin-top: 10px;
-    border: 1px solid rgba(255,255,255,0.2);
 }}
 
 @keyframes fadeIn {{
@@ -267,17 +282,6 @@ h1, h2, h3, h4, h5, h6 {{
     border-radius: 12px !important;
 }}
 
-.footer {{
-    text-align: center;
-    color: rgba(255,255,255,0.9) !important;
-    padding: 25px;
-    font-size: 14px;
-    background: rgba(0,0,0,0.5);
-    backdrop-filter: blur(5px);
-    border-radius: 15px;
-    margin-top: 30px;
-}}
-
 .stRadio > div {{
     background: rgba(30, 35, 50, 0.6) !important;
     backdrop-filter: blur(8px) !important;
@@ -290,10 +294,6 @@ h1, h2, h3, h4, h5, h6 {{
     color: white !important;
     font-size: 1rem !important;
     padding: 8px !important;
-}}
-
-.css-1wrcr25, .css-1vq4p4l {{
-    color: white !important;
 }}
 
 hr {{
@@ -312,20 +312,6 @@ hr {{
     color: white !important;
     border: 1px solid rgba(255,255,255,0.2) !important;
     border-radius: 8px !important;
-}}
-
-div[data-testid="stMetric"]:nth-of-type(1) {{
-    background: linear-gradient(135deg, rgba(160, 174, 192, 0.3) 0%, rgba(113, 128, 150, 0.3) 100%) !important;
-    border: 1px solid rgba(160, 174, 192, 0.5) !important;
-}}
-
-div[data-testid="stMetric"]:nth-of-type(1) label {{
-    color: #E2E8F0 !important;
-}}
-
-div[data-testid="stMetric"]:nth-of-type(1) div {{
-    color: #CBD5E0 !important;
-    text-shadow: 1px 1px 3px rgba(160,174,192,0.3) !important;
 }}
 
 /* تنسيق للشريط الجانبي */
@@ -348,9 +334,18 @@ div[data-testid="stMetric"]:nth-of-type(1) div {{
 </style>
 """, unsafe_allow_html=True)
 
+# ==================== SIDEBAR TOGGLE BUTTON ====================
+col1, col2, col3 = st.columns([1, 10, 1])
+with col1:
+    if st.button("☰", key="sidebar_toggle"):
+        if st.session_state.sidebar_state == 'expanded':
+            st.session_state.sidebar_state = 'collapsed'
+        else:
+            st.session_state.sidebar_state = 'expanded'
+        st.rerun()
+
 # ==================== SIDEBAR ====================
 with st.sidebar:
-  
     st.markdown(f"""
     <div class="developer-profile">
         <img src="data:image/jpeg;base64,{profile_image_base64}" class="developer-image" alt="Developer">
