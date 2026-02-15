@@ -23,6 +23,43 @@ def get_base64_of_image(image_path):
 image_path = r"WhatsApp Image 2026-02-11 at 3.32.24 PM.jpeg"
 image_base64 = get_base64_of_image(image_path)
 
+# JavaScript للتحكم بالشريط الجانبي
+st.markdown("""
+<script>
+function toggleSidebar() {
+    const sidebar = window.parent.document.querySelector('[data-testid="stSidebar"]');
+    const currentDisplay = window.getComputedStyle(sidebar).display;
+    
+    if (currentDisplay === 'none') {
+        sidebar.style.display = 'block';
+        localStorage.setItem('sidebar_state', 'expanded');
+    } else {
+        sidebar.style.display = 'none';
+        localStorage.setItem('sidebar_state', 'collapsed');
+    }
+}
+
+// استعادة حالة الشريط الجانبي عند تحميل الصفحة
+function initializeSidebar() {
+    const sidebar = window.parent.document.querySelector('[data-testid="stSidebar"]');
+    const savedState = localStorage.getItem('sidebar_state');
+    
+    if (savedState === 'collapsed') {
+        sidebar.style.display = 'none';
+    } else {
+        sidebar.style.display = 'block';
+    }
+}
+
+// تنفيذ الدالة بعد تحميل الصفحة
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeSidebar);
+} else {
+    initializeSidebar();
+}
+</script>
+""", unsafe_allow_html=True)
+
 st.markdown(f"""
 <style>
 .stApp {{
@@ -46,6 +83,37 @@ st.markdown(f"""
     border-right: 1px solid rgba(255,255,255,0.15) !important;
 }}
 
+/* تنسيق زر التحكم بالشريط الجانبي */
+.sidebar-toggle-btn {{
+    position: fixed !important;
+    top: 20px !important;
+    left: 20px !important;
+    z-index: 999999 !important;
+    background: linear-gradient(135deg, #4A5568 0%, #2D3748 100%) !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 50% !important;
+    width: 50px !important;
+    height: 50px !important;
+    font-size: 24px !important;
+    cursor: pointer !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5) !important;
+    border: 2px solid rgba(255,255,255,0.3) !important;
+    transition: all 0.3s ease !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-decoration: none !important;
+}}
+
+.sidebar-toggle-btn:hover {{
+    transform: scale(1.1) !important;
+    background: linear-gradient(135deg, #2D3748 0%, #1A202C 100%) !important;
+    border-color: white !important;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.7) !important;
+}}
+
+/* باقي التنسيقات كما هي */
 .custom-card {{
     background: rgba(20, 25, 40, 0.75) !important;
     backdrop-filter: blur(12px) !important;
@@ -267,6 +335,12 @@ div[data-testid="stMetric"]:nth-of-type(1) div {{
 </style>
 """, unsafe_allow_html=True)
 
+# ==================== زر التحكم بالشريط الجانبي ====================
+st.markdown("""
+<button class="sidebar-toggle-btn" onclick="toggleSidebar()">☰</button>
+""", unsafe_allow_html=True)
+
+# ==================== باقي الكود كما هو ====================
 lang = st.sidebar.radio("Language / اللغة", ["English", "العربية"], index=0)
 
 def _(en, ar):
@@ -385,6 +459,7 @@ with st.sidebar:
         ]
     )
 
+# باقي الكود كما هو من هنا...
 if menu == _("Year Analysis", "تحليل السنوات"):
     st.markdown('<div class="custom-card">', unsafe_allow_html=True)
     st.header(_("Year Analysis", "تحليل السنوات"))
