@@ -349,12 +349,11 @@ with st.sidebar:
         <div class="developer-title">Mohammad Naser</div>
         <div style="color: #A0AEC0; font-size: 0.8rem; margin-top: 5px;">
         
-             Data Analyst محلل بيانات
+            {('Data Analyst' ,'محلل بيانات')}
         </div>
     </div>
     """, unsafe_allow_html=True)
-    
-    # LANGUAGE SELECTION (بدون استخدام دالة الترجمة)
+ 
     lang = st.radio("Language / اللغة", ["English", "العربية"], index=0, key="language")
     
     st.markdown("<hr style='margin: 15px 0;'>", unsafe_allow_html=True)
