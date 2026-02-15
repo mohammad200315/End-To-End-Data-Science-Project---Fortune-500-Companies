@@ -27,105 +27,16 @@ profile_image_path = r"WhatsApp Image 2026-02-10 at 1.34.39 PM.jpeg"
 background_image_base64 = get_base64_of_image(background_image_path)
 profile_image_base64 = get_base64_of_image(profile_image_path)
 
-# JavaScript لإدارة حالة الشريط الجانبي
-st.markdown("""
-<script>
-function toggleSidebar() {
-    const sidebar = document.querySelector('[data-testid="stSidebar"]');
-    const mainContent = document.querySelector('.main');
-    
-    if (sidebar.style.display === 'none') {
-        sidebar.style.display = 'block';
-        mainContent.style.marginLeft = '21rem';
-        localStorage.setItem('sidebarState', 'expanded');
-    } else {
-        sidebar.style.display = 'none';
-        mainContent.style.marginLeft = '0';
-        localStorage.setItem('sidebarState', 'collapsed');
-    }
-}
-
-// استعادة حالة الشريط الجانبي عند تحميل الصفحة
-document.addEventListener('DOMContentLoaded', function() {
-    const sidebarState = localStorage.getItem('sidebarState');
-    const sidebar = document.querySelector('[data-testid="stSidebar"]');
-    const mainContent = document.querySelector('.main');
-    
-    if (sidebarState === 'collapsed') {
-        sidebar.style.display = 'none';
-        mainContent.style.marginLeft = '0';
-    }
-});
-</script>
-""", unsafe_allow_html=True)
+# تهيئة حالة الشريط الجانبي في session state
+if 'sidebar_state' not in st.session_state:
+    st.session_state.sidebar_state = 'expanded'
 
 st.markdown(f"""
 <style>
-/* الحل النهائي لإظهار السهم */
 #MainMenu {{visibility: hidden;}}
 footer {{visibility: hidden;}}
 .stDeployButton {{display: none;}}
 .stAppToolbar {{display: none;}}
-
-/* إظهار وتنسيق السهم */
-header {{visibility: visible !important; background-color: transparent !important;}}
-.stApp header {{background-color: transparent !important;}}
-
-/* تنسيق زر السهم الجانبي */
-button[kind="header"] {{
-    background: linear-gradient(135deg, #4A5568 0%, #2D3748 100%) !important;
-    color: white !important;
-    border-radius: 50% !important;
-    width: 45px !important;
-    height: 45px !important;
-    border: 2px solid rgba(255,255,255,0.3) !important;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.5) !important;
-    margin: 15px !important;
-    transition: all 0.3s ease !important;
-    z-index: 999999 !important;
-    cursor: pointer !important;
-}}
-
-button[kind="header"]:hover {{
-    transform: scale(1.1) !important;
-    background: linear-gradient(135deg, #2D3748 0%, #1A202C 100%) !important;
-    border-color: white !important;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.7) !important;
-}}
-
-/* إضافة زر جانبي مخصص */
-.sidebar-toggle-btn {{
-    position: fixed !important;
-    top: 20px !important;
-    left: 20px !important;
-    z-index: 999999 !important;
-    background: linear-gradient(135deg, #4A5568 0%, #2D3748 100%) !important;
-    color: white !important;
-    border: none !important;
-    border-radius: 50% !important;
-    width: 50px !important;
-    height: 50px !important;
-    font-size: 24px !important;
-    cursor: pointer !important;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.5) !important;
-    border: 2px solid rgba(255,255,255,0.3) !important;
-    transition: all 0.3s ease !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-}}
-
-.sidebar-toggle-btn:hover {{
-    transform: scale(1.1) !important;
-    background: linear-gradient(135deg, #2D3748 0%, #1A202C 100%) !important;
-    border-color: white !important;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.7) !important;
-}}
-
-/* تنسيق الشريط الجانبي */
-[data-testid="stSidebar"] {{
-    transition: all 0.3s ease !important;
-}}
 
 /* تنسيق خلفية التطبيق */
 .stApp {{
@@ -149,6 +60,36 @@ button[kind="header"]:hover {{
     background: rgba(10, 10, 20, 0.95) !important;
     backdrop-filter: blur(10px) !important;
     border-right: 1px solid rgba(255,255,255,0.15) !important;
+}}
+
+/* تنسيق زر التحكم بالشريط الجانبي */
+.sidebar-toggle {{
+    position: fixed !important;
+    top: 20px !important;
+    left: 20px !important;
+    z-index: 999999 !important;
+    background: linear-gradient(135deg, #4A5568 0%, #2D3748 100%) !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 50% !important;
+    width: 50px !important;
+    height: 50px !important;
+    font-size: 24px !important;
+    cursor: pointer !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5) !important;
+    border: 2px solid rgba(255,255,255,0.3) !important;
+    transition: all 0.3s ease !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-decoration: none !important;
+}}
+
+.sidebar-toggle:hover {{
+    transform: scale(1.1) !important;
+    background: linear-gradient(135deg, #2D3748 0%, #1A202C 100%) !important;
+    border-color: white !important;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.7) !important;
 }}
 
 /* تنسيق صورة المطور في الشريط الجانبي */
@@ -373,10 +314,30 @@ hr {{
 </style>
 """, unsafe_allow_html=True)
 
-# إضافة زر جانبي للتحكم في الشريط الجانبي
-st.markdown("""
-<button class="sidebar-toggle-btn" onclick="toggleSidebar()">☰</button>
-""", unsafe_allow_html=True)
+# ==================== SIDEBAR TOGGLE BUTTON ====================
+col1, col2, col3 = st.columns([1, 10, 1])
+with col1:
+    if st.button("☰", key="sidebar_toggle"):
+        if st.session_state.sidebar_state == 'expanded':
+            st.session_state.sidebar_state = 'collapsed'
+        else:
+            st.session_state.sidebar_state = 'expanded'
+        st.rerun()
+
+# تطبيق حالة الشريط الجانبي
+if st.session_state.sidebar_state == 'collapsed':
+    st.markdown("""
+    <style>
+        [data-testid="stSidebar"] {
+            display: none !important;
+        }
+        .main .block-container {
+            max-width: 100% !important;
+            padding-left: 5rem !important;
+            padding-right: 5rem !important;
+        }
+    </style>
+    """, unsafe_allow_html=True)
 
 # ==================== SIDEBAR ====================
 with st.sidebar:
@@ -458,8 +419,6 @@ st.markdown(f"""
             padding: 25px; 
             border-radius: 10px; 
             margin-bottom: 30px; 
-            margin-left: 30px;
-            margin-right: 30px;
             text-align: center;
             border: 1px solid rgba(255,255,255,0.25);
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);">
@@ -787,7 +746,7 @@ st.markdown(f"""
             backdrop-filter: blur(12px);
             border-radius: 35px;
             padding: 10px;
-            margin: 30px;
+            margin-top: 10px;
             border: 1px solid rgba(255,255,255,0.2);
             text-align: center;">
     <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem; margin-top: 10px;">
